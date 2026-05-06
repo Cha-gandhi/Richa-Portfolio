@@ -55,9 +55,25 @@ The site is designed to deploy directly with GitHub Pages:
 5. Choose branch `main` and folder `/ (root)`.
 6. Save and wait for GitHub Pages to publish.
 
+After each push, check:
+
+1. GitHub repo → **Actions** for the latest Pages deployment status.
+2. GitHub repo → **Settings** → **Pages** for the live URL.
+3. The live site in a private/incognito browser window.
+4. Hard refresh with `Ctrl + F5` if the old version appears cached.
+
 ## Privacy and Security Notes
 
+- The GitHub repository is private, but the deployed GitHub Pages site may still be public. Visitors cannot browse or clone the private repository, but browsers still download the public site files needed to render the website.
 - Raw third-party export files under `data/raw/` are intentionally excluded from Git because they may contain API-key-like metadata.
 - Local browser profile artifacts, crash dumps, temporary files, and local source dumps are excluded via `.gitignore`.
 - The public site includes an email contact link by design.
 - Before publishing updates, review new files for secrets, personal local paths, and large unused assets.
+
+## Rights
+
+Copyright (c) 2026 Richa Gandhi. All rights reserved.
+
+This portfolio is shared for viewing Richa Gandhi's professional work. The design, writing, images, project materials, and source code may not be copied, redistributed, republished, or reused without written permission.
+
+If GitHub Pages stops serving after repository visibility changes, either confirm the account supports Pages from private repositories, make the repository public without an open-source license, or deploy from this private source to a hosting service such as Netlify or Vercel.

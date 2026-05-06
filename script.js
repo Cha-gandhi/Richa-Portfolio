@@ -310,6 +310,18 @@ const featuredRailProjects = orderedFeaturedRailProjects.map((project) => ({
 
 const rail = document.querySelector("#project-rail");
 
+function applyImageFallbacks(container) {
+  container.querySelectorAll(".project-image-wrap img").forEach((img) => {
+    img.addEventListener("error", () => {
+      const wrap = img.closest(".project-image-wrap");
+      if (!wrap) return;
+      const label = img.alt.replace(/\s+cover$/i, "") || "Project image unavailable";
+      wrap.classList.add("project-image-placeholder");
+      wrap.innerHTML = `<span>${label}</span>`;
+    });
+  });
+}
+
 function projectCardMarkup(project, className = "rail-card") {
   const imageMarkup = project.usePlaceholder
     ? `<div class="project-image-wrap project-image-placeholder" aria-hidden="true"><span>${project.title}</span></div>`
@@ -333,7 +345,13 @@ function projectCardMarkup(project, className = "rail-card") {
 }
 
 function renderProjects() {
+  if (!rail) return;
+  if (!featuredRailProjects.length) {
+    rail.innerHTML = `<p class="project-category">Featured projects will be added soon.</p>`;
+    return;
+  }
   rail.innerHTML = featuredRailProjects.map((project) => projectCardMarkup(project)).join("");
+  applyImageFallbacks(rail);
 }
 
 renderProjects();
@@ -349,6 +367,12 @@ renderProjects();
 
   function getCards() {
     return Array.from(railViewport.querySelectorAll(".rail-card"));
+  }
+
+  if (!getCards().length) {
+    btnPrev.disabled = true;
+    btnNext.disabled = true;
+    return;
   }
 
   let currentIdx = 0;

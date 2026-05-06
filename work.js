@@ -275,6 +275,18 @@ groups.visual.projects = [
 const sectionOrder = ["visual", "service", "uxui"];
 const target = document.querySelector("#work-sections");
 
+function applyImageFallbacks(container) {
+  container.querySelectorAll(".project-image-wrap img").forEach((img) => {
+    img.addEventListener("error", () => {
+      const wrap = img.closest(".project-image-wrap");
+      if (!wrap) return;
+      const label = img.alt.replace(/\s+cover$/i, "") || "Project image unavailable";
+      wrap.classList.add("project-image-placeholder");
+      wrap.innerHTML = `<span>${label}</span>`;
+    });
+  });
+}
+
 function cardMarkup(project) {
   const imageMarkup = project.image
     ? `<img src="${project.image}" alt="${project.title} cover" loading="lazy" decoding="async" width="1200" height="900" style="object-fit:${project.imageFit || "cover"}; background:${project.imageBackground || "transparent"}; padding:${project.imagePadding || "0"}; box-sizing:border-box;" />`
@@ -314,4 +326,7 @@ function sectionMarkup(key) {
   `;
 }
 
-target.innerHTML = sectionOrder.map(sectionMarkup).join("");
+if (target) {
+  target.innerHTML = sectionOrder.map(sectionMarkup).join("");
+  applyImageFallbacks(target);
+}

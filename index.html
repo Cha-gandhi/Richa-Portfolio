@@ -8,6 +8,23 @@
       name="description"
       content="Portfolio website for Richa Gandhi, an interdisciplinary designer shaping identities, campaigns, publication layouts, and interface concepts."
     />
+    <meta name="theme-color" content="#ffffff" />
+    <link rel="canonical" href="https://cha-gandhi.github.io/Richa-Portfolio/" />
+    <meta property="og:title" content="Richa Gandhi | Interdisciplinary Designer" />
+    <meta
+      property="og:description"
+      content="Portfolio website for Richa Gandhi, an interdisciplinary designer creating brand identities, campaigns, layouts, and digital interfaces."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://cha-gandhi.github.io/Richa-Portfolio/" />
+    <meta property="og:image" content="https://cha-gandhi.github.io/Richa-Portfolio/assets/photos/homepage-portrait.jpeg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Richa Gandhi | Interdisciplinary Designer" />
+    <meta
+      name="twitter:description"
+      content="Portfolio website for Richa Gandhi, an interdisciplinary designer creating brand identities, campaigns, layouts, and digital interfaces."
+    />
+    <meta name="twitter:image" content="https://cha-gandhi.github.io/Richa-Portfolio/assets/photos/homepage-portrait.jpeg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -17,6 +34,7 @@
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
+    <a class="skip-to-main" href="#top">Skip to main content</a>
     <div class="page-shell">
       <header class="site-header">
         <a class="brand-mark" href="#top" aria-label="Richa Gandhi home">
@@ -86,7 +104,7 @@
           <h2>GLIMPSE OF MY WORK</h2>
         </section>
 
-        <section class="project-rail-shell">
+        <section class="project-rail-shell" role="region" aria-label="Featured project carousel">
           <div class="rail-nav">
             <button class="photo-carousel-btn" id="rail-prev" aria-label="Previous project" aria-controls="project-rail">&#8592;</button>
             <button class="photo-carousel-btn" id="rail-next" aria-label="Next project" aria-controls="project-rail">&#8594;</button>
@@ -144,7 +162,7 @@
               <button class="photo-carousel-btn" id="photo-next" aria-label="Next photo" aria-controls="photo-track">&#8594;</button>
             </div>
           </div>
-          <div class="photo-carousel" id="photo-carousel" tabindex="0" aria-label="Photos gallery, use arrow keys or buttons to navigate">
+          <div class="photo-carousel" id="photo-carousel" role="region" tabindex="0" aria-label="Photos gallery, use arrow keys or buttons to navigate">
             <div class="photo-carousel-viewport">
               <div class="photo-carousel-track" id="photo-track" aria-live="polite">
                 <div class="photo-carousel-slide">

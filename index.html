@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Richa Gandhi | Interdisciplinary Designer</title>
+    <meta
+      name="description"
+      content="Portfolio website for Richa Gandhi, an interdisciplinary designer shaping identities, campaigns, publication layouts, and interface concepts."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="site-header">
+        <a class="brand-mark" href="#top" aria-label="Richa Gandhi home">
+          <span>RICHA</span>
+          <span>GANDHI</span>
+        </a>
+        <nav class="site-nav" aria-label="Primary">
+          <a href="./work.html">Work</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </header>
+
+      <main id="top">
+        <section class="hero">
+          <figure class="hero-image-field" aria-label="Portrait of Richa Gandhi">
+            <img src="./assets/photos/homepage-portrait.jpeg" alt="Richa Gandhi" />
+          </figure>
+          <div class="hero-copy">
+            <h1 id="hero-title">
+              <span>Richa Gandhi is an interdisciplinary designer who creates brand identities,</span>
+              <span>campaigns, layouts, and digital interfaces with a clean and modern approach.</span>
+            </h1>
+            <p class="hero-text" id="hero-text">
+              With 3+ years of experience across India and the UK, she creates impactful visual
+              solutions and service designs by combining strategic thinking, branding, and
+              hands-on design skills.
+            </p>
+            <p class="hero-labels" aria-label="Core focus areas">
+              <span>Brand stories</span>
+              <span>Digital experiences</span>
+              <span>Visual systems</span>
+            </p>
+          </div>
+        </section>
+
+        <section class="skills-section" id="skills">
+          <div class="section-heading narrow">
+            <p class="eyebrow">Skills</p>
+          </div>
+          <div class="skills-grid">
+            <article class="skill-card skill-card-main">
+              <p class="panel-label">Core tools</p>
+              <div class="skill-pills">
+                <span>Adobe Photoshop</span>
+                <span>Adobe Illustrator</span>
+                <span>Adobe InDesign</span>
+                <span>Adobe Premiere Pro</span>
+                <span>Adobe XD</span>
+                <span>Figma</span>
+                <span>Miro</span>
+              </div>
+            </article>
+            <article class="skill-card">
+              <p class="panel-label">Methods</p>
+              <div class="skill-pills">
+                <span>Design Thinking</span>
+                <span>Design Research</span>
+                <span>Workshop Design</span>
+                <span>Facilitation</span>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="section-heading section-heading-featured" id="work">
+          <p class="eyebrow">Featured projects</p>
+          <h2>GLIMPSE OF MY WORK</h2>
+        </section>
+
+        <section class="project-rail-shell">
+          <div class="rail-nav">
+            <button class="photo-carousel-btn" id="rail-prev" aria-label="Previous project" aria-controls="project-rail">&#8592;</button>
+            <button class="photo-carousel-btn" id="rail-next" aria-label="Next project" aria-controls="project-rail">&#8594;</button>
+          </div>
+          <div class="project-rail" id="project-rail" aria-live="polite"></div>
+          <div class="rail-actions">
+            <a class="button button-secondary" href="./work.html">See more</a>
+          </div>
+        </section>
+
+        <section class="approach-section" aria-label="Approach to work">
+          <div class="panel-card approach-highlight">
+            <p class="panel-label">Approach</p>
+            <h2>Research-led thinking with clean, expressive visual outcomes.</h2>
+          </div>
+          <div class="approach-cards">
+            <div class="panel-card approach-card">
+              <p class="panel-index">01</p>
+              <h3>Listen closely</h3>
+              <p>
+                I start by understanding the audience, context, and business intent before defining a direction. I use
+                the 5Ws and 1H to ask the right (and sometimes uncomfortable) questions.
+              </p>
+            </div>
+            <div class="panel-card approach-card">
+              <p class="panel-index">02</p>
+              <h3>Define the problem</h3>
+              <p>
+                A clear problem sets the direction. It keeps every design decision focused and purposeful.
+              </p>
+            </div>
+            <div class="panel-card approach-card">
+              <p class="panel-index">03</p>
+              <h3>Sketch, ideate &amp; shape the system</h3>
+              <p>
+                Ideas first, pixels later. I use typography, color, and hierarchy to build expressive, scalable systems.
+              </p>
+            </div>
+            <div class="panel-card approach-card">
+              <p class="panel-index">04</p>
+              <h3>Refine &amp; iterate</h3>
+              <p>
+                I polish, test, and tweak considering the client's feedback at all levels. So the final work feels
+                clear, strategic, and effortless.
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section class="photo-section" id="photos" aria-label="Photo gallery">
+          <div class="photo-section-head">
+            <p class="eyebrow">Photos</p>
+            <div class="photo-carousel-controls" aria-label="Gallery navigation">
+              <button class="photo-carousel-btn" id="photo-prev" aria-label="Previous photo" aria-controls="photo-track">&#8592;</button>
+              <button class="photo-carousel-btn" id="photo-next" aria-label="Next photo" aria-controls="photo-track">&#8594;</button>
+            </div>
+          </div>
+          <div class="photo-carousel" id="photo-carousel" tabindex="0" aria-label="Photos gallery, use arrow keys or buttons to navigate">
+            <div class="photo-carousel-viewport">
+              <div class="photo-carousel-track" id="photo-track" aria-live="polite">
+                <div class="photo-carousel-slide">
+                  <figure class="photo-carousel-figure">
+                    <img src="./assets/photos/2.jpg" alt="Group photo from a community event" loading="lazy" />
+                  </figure>
+                </div>
+                <div class="photo-carousel-slide">
+                  <figure class="photo-carousel-figure">
+                    <img src="./assets/photos/photos_03.jpeg" alt="Group at Alton Arts Hub" loading="lazy" />
+                  </figure>
+                </div>
+                <div class="photo-carousel-slide">
+                  <figure class="photo-carousel-figure">
+                    <img src="./assets/photos/whatsapp-image-2026-04-10-2-43-03-pm-1.jpeg" alt="Photos section image" loading="lazy" />
+                  </figure>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="contact-section" id="contact">
+          <div>
+            <p class="eyebrow">Contact me</p>
+            <h2>YOU CAN REACH ME HERE</h2>
+          </div>
+          <div class="contact-links">
+            <a href="mailto:richagandhi.work@gmail.com">richagandhi.work@gmail.com</a>
+            <a href="https://www.linkedin.com/in/gandhiricha/" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a href="https://www.behance.net/gandhiricha" target="_blank" rel="noreferrer">Behance</a>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="./data/behance-portfolio.js"></script>
+    <script src="./script.js"></script>
+    <script src="./photos-carousel.js"></script>
+  </body>
+</html>

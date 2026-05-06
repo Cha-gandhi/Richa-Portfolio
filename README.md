@@ -7,7 +7,7 @@ Static portfolio website for Richa Gandhi, an interdisciplinary designer creatin
 GitHub Pages URL:
 
 ```text
-https://cha-gandhi.github.io/Richa-s-Portfolio/
+https://cha-gandhi.github.io/Richa-Portfolio/
 ```
 
 ## Project Structure

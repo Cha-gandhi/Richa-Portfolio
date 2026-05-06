@@ -160,7 +160,7 @@ const externalServiceLinks = [
     categoryLabel: "Service / Design Thinking",
     description: descriptionOverrides["Food of Us"],
     image: workAsset("food-of-us.png"),
-    link: "https://gandhir7070.wixsite.com/portfolio/about-5",
+    link: "https://www.notion.so/FOOD-OF-US-33d5cfa216a98108b39bd153c5d3afc7?source=copy_link",
     linkLabel: "Link to Work",
     imageFit: "cover",
     imageBackground: "transparent",

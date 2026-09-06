@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 340" role="img" aria-label="KingsGate Student Pantry">
+  <g transform="translate(55,36)">
+    <path d="M150 8c22-20 70-8 74 28 28-14 58 14 44 42 22 12 20 48-6 56 10 28-18 56-48 48-10 28-48 34-66 8-28 18-64 2-64-30-30 0-48-30-28-52-16-22 0-54 32-56 6-30 36-48 62-44z" fill="#2f7d45"/>
+    <ellipse cx="70" cy="100" rx="52" ry="22" transform="rotate(-32 70 100)" fill="#e8b24a" stroke="#16141f" stroke-width="5"/>
+    <path d="M42 92l18 6M58 84l16 8M76 78l14 10" stroke="#9a6b22" stroke-width="4" stroke-linecap="round"/>
+    <rect x="108" y="72" width="44" height="58" rx="5" fill="#3b6ea8" stroke="#16141f" stroke-width="5"/>
+    <path d="M116 72h28l6-10H112z" fill="#3b6ea8" stroke="#16141f" stroke-width="4"/>
+    <circle cx="130" cy="96" r="7" fill="#fff"/>
+    <circle cx="96" cy="132" r="20" fill="#d6453d" stroke="#16141f" stroke-width="5"/>
+    <circle cx="132" cy="144" r="17" fill="#d6453d" stroke="#16141f" stroke-width="5"/>
+  </g>
+  <text x="160" y="270" text-anchor="middle" font-family="Arial Black, Arial, Helvetica, sans-serif" font-weight="700" font-size="28" fill="#16141f">KingsGate</text>
+  <text x="160" y="302" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" fill="#16141f">Student Pantry</text>
+</svg>

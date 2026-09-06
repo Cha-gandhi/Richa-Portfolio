@@ -16,17 +16,31 @@ https://cha-gandhi.github.io/Richa-Portfolio/
 .
 ├── index.html                  # Homepage
 ├── work.html                   # Work listing page
-├── styles.css                  # Shared site styles
-├── work.css                    # Work page styles
-├── case-study.css              # Project detail page styles
-├── script.js                   # Homepage project rail
+├── styles.css                  # Tokens, global chrome, homepage sections
+├── work.css                    # Work page rows
+├── case-study.css              # Project detail template (self-contained)
+├── chroma.js                   # Shared accent engine (page color follows the active project)
+├── script.js                   # Homepage filmstrip + process chapters (GSAP via CDN)
 ├── work.js                     # Work page rendering
-├── photos-carousel.js          # Homepage photos carousel
+├── AI_DESIGN_PRACTICE_GUIDE.md # Recruiter talking points & plain-English AI use case explanations
 ├── data/
-│   └── behance-portfolio.js    # Curated portfolio data used by the site
-├── assets/                     # Runtime images and visual assets
+│   └── behance-portfolio.js    # Curated portfolio data used by the Work page
+├── assets/
+│   ├── marks/                  # Lightweight logo plates for the filmstrip (~15–30KB each)
+│   └── …                       # Photos, Work covers, Behance modules
 └── projects/                   # Case study pages
 ```
+
+## AI Practice & Contemporary Design Workflows
+
+For interview preparation and clear explanations of the 4 AI use cases presented in the portfolio, refer to:
+👉 **[`AI_DESIGN_PRACTICE_GUIDE.md`](./AI_DESIGN_PRACTICE_GUIDE.md)**
+
+It provides:
+- The 30-second interview pitch explaining how AI is integrated into current workflows without overclaiming on past projects.
+- Plain-English breakdowns for each use case (Accessibility, Qualitative Synthesis, UI State Architecture, and Brand Metaphors).
+- What AI does vs. what Richa does (craft, taste, and ethics).
+- Answers to common interview questions.
 
 ## Local Preview
 

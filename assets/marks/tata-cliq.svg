@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 340 140" role="img" aria-label="Tata CLiQ">
+  <rect x="10" y="30" width="68" height="68" rx="14" fill="#8B1E3D"/>
+  <circle cx="42" cy="60" r="17" fill="none" stroke="#fff" stroke-width="7"/>
+  <line x1="53" y1="72" x2="64" y2="85" stroke="#fff" stroke-width="7" stroke-linecap="round"/>
+  <text x="96" y="62" font-family="Syne, Avenir Next, Futura, sans-serif" font-weight="800" font-size="26" letter-spacing="0.08em" fill="#16141f">TATA</text>
+  <text x="96" y="104" font-family="Syne, Avenir Next, Futura, sans-serif" font-weight="800" font-size="44" letter-spacing="-0.02em" fill="#16141f">CLiQ</text>
+</svg>

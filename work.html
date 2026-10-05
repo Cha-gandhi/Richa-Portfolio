@@ -8,7 +8,7 @@
       name="description"
       content="Selected work by Richa Gandhi across visual design, service design and design thinking, and UXUI design."
     />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="theme-color" content="#ecebe8" />
     <link rel="canonical" href="https://cha-gandhi.github.io/Richa-Portfolio/work.html" />
     <meta property="og:title" content="Work | Richa Gandhi" />
     <meta
@@ -28,7 +28,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Space+Mono:wght@400;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./styles.css" />
@@ -36,28 +36,57 @@
   </head>
   <body>
     <a class="skip-to-main" href="#top">Skip to main content</a>
-    <div class="page-shell work-shell">
-      <header class="site-header">
-        <a class="brand-mark" href="./index.html" aria-label="Richa Gandhi home">
-          <span>RICHA</span>
-          <span>GANDHI</span>
-        </a>
-        <nav class="site-nav" aria-label="Primary">
-          <a class="is-active" href="./work.html">Work</a>
-          <a href="./index.html#contact">Contact</a>
+    <div class="chroma-wash" aria-hidden="true"></div>
+
+    <header class="site-nav" id="site-nav">
+      <a class="wordmark" href="./index.html" aria-label="Richa Gandhi home">Richa Gandhi</a>
+      <nav aria-label="Primary">
+        <span class="chroma-dot" aria-hidden="true"></span>
+        <a class="is-active" href="./work.html">Work</a>
+        <a href="./index.html#experience">Experience</a>
+        <a href="./index.html#contact">Contact</a>
+      </nav>
+    </header>
+
+    <main class="work-page" id="top">
+      <section class="work-hero" aria-labelledby="work-heading">
+        <p class="eyebrow mono">Work &middot; 2019 &ndash; 2025</p>
+        <h1 class="work-title" id="work-heading">Every project, its own palette.</h1>
+        <p class="work-lede">
+          Visual design, service design and UXUI &mdash; each with a color pulled from the work itself.
+        </p>
+        <nav class="work-jump mono" aria-label="Disciplines">
+          <a href="#visual">Visual</a>
+          <a href="#service">Service</a>
+          <a href="#uxui">UXUI</a>
         </nav>
-      </header>
+      </section>
 
-      <main class="work-page" id="top">
-        <section class="work-hero">
-          <h1>WORK</h1>
-        </section>
+      <div class="work-sections" id="work-sections"></div>
 
-        <div class="work-sections" id="work-sections" aria-live="polite"></div>
-      </main>
-    </div>
+      <section class="contact contact-compact" id="contact" aria-labelledby="contact-title">
+        <p class="eyebrow mono">Contact</p>
+        <h2 class="contact-title" id="contact-title">Let&rsquo;s make something worth remembering.</h2>
+        <a class="contact-email" href="mailto:richagandhi.work@gmail.com">richagandhi.work@<wbr />gmail.com</a>
+        <div class="contact-links mono">
+          <a href="https://www.linkedin.com/in/gandhiricha/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href="https://www.behance.net/gandhiricha" target="_blank" rel="noreferrer">Behance</a>
+          <span class="route-node">
+            <img class="flag-img" src="./assets/marks/flag-in.svg" alt="India" /> IND &rarr;
+            <img class="flag-img" src="./assets/marks/flag-gb.svg" alt="UK" /> UK &rarr;
+            <img class="flag-img" src="./assets/marks/flag-us.svg" alt="USA" /> USA
+          </span>
+        </div>
+      </section>
+    </main>
 
-    <script src="./data/behance-portfolio.js"></script>
-    <script src="./work.js"></script>
+    <footer class="site-foot mono">
+      <span>&copy; 2026 Richa Gandhi</span>
+      <span>Designed and built by Richa Gandhi</span>
+    </footer>
+
+    <script src="./data/behance-portfolio.js" defer></script>
+    <script src="./chroma.js" defer></script>
+    <script src="./work.js" defer></script>
   </body>
 </html>

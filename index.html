@@ -8,7 +8,7 @@
       name="description"
       content="Portfolio website for Richa Gandhi, an interdisciplinary designer shaping identities, campaigns, publication layouts, and interface concepts."
     />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="theme-color" content="#ecebe8" />
     <link rel="canonical" href="https://cha-gandhi.github.io/Richa-Portfolio/" />
     <meta property="og:title" content="Richa Gandhi | Interdisciplinary Designer" />
     <meta
@@ -27,180 +27,984 @@
     <meta name="twitter:image" content="https://cha-gandhi.github.io/Richa-Portfolio/assets/photos/homepage-portrait.jpeg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
+    <link rel="preload" as="image" href="./assets/photos/homepage-portrait.jpeg" fetchpriority="high" />
+    <link rel="preload" as="image" href="./assets/marks/synnova.svg" />
     <link
-      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Space+Mono:wght@400;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <a class="skip-to-main" href="#top">Skip to main content</a>
-    <div class="page-shell">
-      <header class="site-header">
-        <a class="brand-mark" href="#top" aria-label="Richa Gandhi home">
-          <span>RICHA</span>
-          <span>GANDHI</span>
-        </a>
-        <nav class="site-nav" aria-label="Primary">
-          <a href="./work.html">Work</a>
-          <a href="#contact">Contact</a>
-        </nav>
-      </header>
+    <div class="chroma-wash" id="chroma-wash" aria-hidden="true"></div>
 
-      <main id="top">
-        <section class="hero">
-          <figure class="hero-image-field" aria-label="Portrait of Richa Gandhi">
-            <img src="./assets/photos/homepage-portrait.jpeg" alt="Richa Gandhi" />
-          </figure>
-          <div class="hero-copy">
-            <h1 id="hero-title">
-              <span>Richa Gandhi is an interdisciplinary designer who creates brand identities,</span>
-              <span>campaigns, layouts, and digital interfaces with a clean and modern approach.</span>
-            </h1>
-            <p class="hero-text" id="hero-text">
-              With 3+ years of experience across India and the UK, she creates impactful visual
-              solutions and service designs by combining strategic thinking, branding, and
-              hands-on design skills.
-            </p>
-            <p class="hero-labels" aria-label="Core focus areas">
-              <span>Brand stories</span>
-              <span>Digital experiences</span>
-              <span>Visual systems</span>
-            </p>
-          </div>
-        </section>
+    <header class="site-nav" id="site-nav">
+      <a class="wordmark" href="#top" aria-label="Richa Gandhi home">Richa Gandhi</a>
+      <nav aria-label="Primary">
+        <span class="chroma-dot" aria-hidden="true"></span>
+        <a href="./work.html">Work</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </header>
 
-        <section class="skills-section" id="skills">
-          <div class="section-heading narrow">
-            <p class="eyebrow">Skills</p>
+    <main id="top">
+      <section class="hero" data-accent="#efc697" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <div class="hero-meta-row">
+            <p class="eyebrow mono">Interdisciplinary Designer</p>
+            <span class="meta-sep mono" aria-hidden="true">&mdash;</span>
+            <div class="route-badge mono" aria-label="Location route: India to UK to USA, currently based in USA">
+              <span class="route-node" title="India"><img class="flag-img" src="./assets/marks/flag-in.svg" alt="India flag" /> <span class="route-code">IND</span></span>
+              <span class="route-sep" aria-hidden="true">&rarr;</span>
+              <span class="route-node" title="United Kingdom"><img class="flag-img" src="./assets/marks/flag-gb.svg" alt="UK flag" /> <span class="route-code">UK</span></span>
+              <span class="route-sep" aria-hidden="true">&rarr;</span>
+              <span class="route-node is-current" title="United States &middot; Current Base">
+                <img class="flag-img" src="./assets/marks/flag-us.svg" alt="USA flag" /> <span class="route-code">USA</span>
+                <span class="live-dot" aria-hidden="true"></span>
+              </span>
+            </div>
           </div>
-          <div class="skills-grid">
-            <article class="skill-card skill-card-main">
-              <p class="panel-label">Core tools</p>
-              <div class="skill-pills">
-                <span>Adobe Photoshop</span>
-                <span>Adobe Illustrator</span>
-                <span>Adobe InDesign</span>
-                <span>Adobe Premiere Pro</span>
-                <span>Adobe XD</span>
-                <span>Figma</span>
-                <span>Miro</span>
+          <h1 class="hero-title" id="hero-title">
+            <span class="hero-line"><span class="hero-word">Richa</span></span>
+            <span class="hero-line"><span class="hero-word">Gandhi</span></span>
+          </h1>
+          <p class="hero-lede">
+            Brand identities, campaigns and interfaces &mdash; built like systems, told like stories.
+          </p>
+          <div class="hero-actions">
+            <a class="btn" href="#work">See the work</a>
+            <a class="link-plain" href="mailto:richagandhi.work@gmail.com">richagandhi.work@gmail.com</a>
+          </div>
+        </div>
+        <figure class="hero-plane">
+          <img
+            src="./assets/photos/homepage-portrait.jpeg"
+            alt="Richa Gandhi smiling on a rooftop at sunset, soap bubbles drifting past"
+            fetchpriority="high"
+            width="1024"
+            height="702"
+          />
+        </figure>
+      </section>
+
+      <section class="film" id="work" aria-labelledby="work-title">
+        <div class="section-head film-head">
+          <p class="eyebrow mono">Selected work</p>
+          <div class="film-head-row">
+            <h2 id="work-title">Five projects, five palettes.</h2>
+            <a class="link-plain" href="./work.html">All work &rarr;</a>
+          </div>
+        </div>
+        
+        <!-- The Kinetic Spatial Accordion -->
+        <div class="accordion-stage" id="accordionStage">
+          <!-- Accordion Panel 1: Synnova -->
+          <div class="acc-panel is-expanded" data-accent="#b9d6aa">
+            <div class="acc-spine mono">
+              <span class="acc-spine-num">01</span>
+              <span class="acc-spine-label">SYNNOVA GEARS // UXUI</span>
+              <span class="acc-spine-dot" style="background: #b9d6aa;"></span>
+            </div>
+            <div class="acc-expanded-content">
+              <div class="acc-head-row">
+                <div>
+                  <span class="mono" style="font-size: 0.72rem; color: #2d4a22; font-weight: 700;">UXUI DESIGN SYSTEM &middot; 2025</span>
+                  <h3 class="acc-title">Synnova Gears &amp; Transmissions</h3>
+                </div>
+                <div class="acc-swatch-cluster">
+                  <span class="acc-swatch-circle" style="background: #b9d6aa;" title="Accent: #B9D6AA"></span>
+                  <span class="acc-swatch-circle" style="background: #2d4a22;" title="Deep Forest: #2D4A22"></span>
+                  <span class="acc-swatch-circle" style="background: #dfdcd8;" title="Ground: #DFDCD8"></span>
+                </div>
               </div>
-            </article>
-            <article class="skill-card">
-              <p class="panel-label">Methods</p>
-              <div class="skill-pills">
-                <span>Design Thinking</span>
-                <span>Design Research</span>
-                <span>Workshop Design</span>
-                <span>Facilitation</span>
+              <div class="acc-mark-preview" style="background: color-mix(in oklab, #b9d6aa 20%, transparent);">
+                <img src="./assets/marks/synnova.svg" alt="Synnova" style="max-height: 80px;" />
               </div>
-            </article>
+              <p class="acc-desc">
+                Engineered modular catalog navigation and responsive design token hierarchies for an international precision industrial manufacturing firm.
+              </p>
+              <div class="acc-deliverables mono">
+                <span class="acc-tag">Figma Tokens</span>
+                <span class="acc-tag">Information Architecture</span>
+                <span class="acc-tag">Interactive CAD Viewer</span>
+              </div>
+              <a href="https://www.notion.so/SYNNOVA-GEARS-TRANSMISSION-UXUI-Design-33d5cfa216a9818e9db2f4921ff4b6c8" target="_blank" rel="noreferrer" class="acc-btn mono">Open Project Documentation &rarr;</a>
+            </div>
           </div>
-        </section>
 
-        <section class="section-heading section-heading-featured" id="work">
-          <p class="eyebrow">Featured projects</p>
-          <h2>GLIMPSE OF MY WORK</h2>
-        </section>
+          <!-- Accordion Panel 2: Food of Us -->
+          <div class="acc-panel" data-accent="#bcd7db">
+            <div class="acc-spine mono">
+              <span class="acc-spine-num">02</span>
+              <span class="acc-spine-label">FOOD OF US // SERVICE</span>
+              <span class="acc-spine-dot" style="background: #bcd7db;"></span>
+            </div>
+            <div class="acc-expanded-content">
+              <div class="acc-head-row">
+                <div>
+                  <span class="mono" style="font-size: 0.72rem; color: #1e4b52; font-weight: 700;">CIVIC SERVICE DESIGN &middot; 2024</span>
+                  <h3 class="acc-title">Food of Us</h3>
+                </div>
+                <div class="acc-swatch-cluster">
+                  <span class="acc-swatch-circle" style="background: #bcd7db;" title="Accent: #BCD7DB"></span>
+                  <span class="acc-swatch-circle" style="background: #1e4b52;" title="Deep Marine: #1E4B52"></span>
+                  <span class="acc-swatch-circle" style="background: #f4f2eb;" title="Linen: #F4F2EB"></span>
+                </div>
+              </div>
+              <div class="acc-mark-preview" style="background: color-mix(in oklab, #bcd7db 20%, transparent);">
+                <img src="./assets/marks/food-of-us.png" alt="Food of Us" style="max-height: 80px;" />
+              </div>
+              <p class="acc-desc">
+                London civic initiative facilitating cross-generational community cooking workshops, surplus food redistribution loops, and public banners.
+              </p>
+              <div class="acc-deliverables mono">
+                <span class="acc-tag">Service Blueprint</span>
+                <span class="acc-tag">200+ Citizens</span>
+                <span class="acc-tag">Street Signage</span>
+              </div>
+              <a href="https://www.notion.so/FOOD-OF-US-33d5cfa216a98108b39bd153c5d3afc7" target="_blank" rel="noreferrer" class="acc-btn mono">Open Project Documentation &rarr;</a>
+            </div>
+          </div>
 
-        <section class="project-rail-shell" role="region" aria-label="Featured project carousel">
-          <div class="rail-nav">
-            <button class="photo-carousel-btn" id="rail-prev" aria-label="Previous project" aria-controls="project-rail">&#8592;</button>
-            <button class="photo-carousel-btn" id="rail-next" aria-label="Next project" aria-controls="project-rail">&#8594;</button>
+          <!-- Accordion Panel 3: Stories of Cooking -->
+          <div class="acc-panel" data-accent="#d9aba2">
+            <div class="acc-spine mono">
+              <span class="acc-spine-num">03</span>
+              <span class="acc-spine-label">STORIES OF COOKING // BRAND</span>
+              <span class="acc-spine-dot" style="background: #d9aba2;"></span>
+            </div>
+            <div class="acc-expanded-content">
+              <div class="acc-head-row">
+                <div>
+                  <span class="mono" style="font-size: 0.72rem; color: #8f463b; font-weight: 700;">EDITORIAL BRANDING &middot; 2023</span>
+                  <h3 class="acc-title">Stories of Cooking</h3>
+                </div>
+                <div class="acc-swatch-cluster">
+                  <span class="acc-swatch-circle" style="background: #d9aba2;" title="Accent: #D9ABA2"></span>
+                  <span class="acc-swatch-circle" style="background: #8f463b;" title="Rust: #8F463B"></span>
+                  <span class="acc-swatch-circle" style="background: #fdfbf7;" title="Parchment: #FDFBF7"></span>
+                </div>
+              </div>
+              <div class="acc-mark-preview" style="background: color-mix(in oklab, #d9aba2 20%, transparent);">
+                <img src="./assets/marks/stories.svg" alt="Stories of Cooking" style="max-height: 80px;" />
+              </div>
+              <p class="acc-desc">
+                Artisanal culinary brand system, bespoke typography hierarchy, and heirloom cookbook editorial spreads celebrating kitchen rituals.
+              </p>
+              <div class="acc-deliverables mono">
+                <span class="acc-tag">Custom Typography</span>
+                <span class="acc-tag">Print Craft</span>
+                <span class="acc-tag">Packaging Design</span>
+              </div>
+              <a href="https://www.behance.net/gallery/182067115/Stories-of-Cooking" target="_blank" rel="noreferrer" class="acc-btn mono">Open Project Documentation &rarr;</a>
+            </div>
           </div>
-          <div class="project-rail" id="project-rail" aria-live="polite"></div>
-          <div class="rail-actions">
-            <a class="button button-secondary" href="./work.html">See more</a>
-          </div>
-        </section>
 
-        <section class="approach-section" aria-label="Approach to work">
-          <div class="panel-card approach-highlight">
-            <p class="panel-label">Approach</p>
-            <h2>Research-led thinking with clean, expressive visual outcomes.</h2>
+          <!-- Accordion Panel 4: KingsGate Pantry -->
+          <div class="acc-panel" data-accent="#efc697">
+            <div class="acc-spine mono">
+              <span class="acc-spine-num">04</span>
+              <span class="acc-spine-label">KINGSGATE PANTRY // LOGO</span>
+              <span class="acc-spine-dot" style="background: #efc697;"></span>
+            </div>
+            <div class="acc-expanded-content">
+              <div class="acc-head-row">
+                <div>
+                  <span class="mono" style="font-size: 0.72rem; color: #7c511e; font-weight: 700;">COMMUNITY LOGO SYSTEM &middot; 2025</span>
+                  <h3 class="acc-title">KingsGate Student Pantry</h3>
+                </div>
+                <div class="acc-swatch-cluster">
+                  <span class="acc-swatch-circle" style="background: #efc697;" title="Accent: #EFC697"></span>
+                  <span class="acc-swatch-circle" style="background: #7c511e;" title="Umber: #7C511E"></span>
+                  <span class="acc-swatch-circle" style="background: #f5f3ee;" title="Chalk: #F5F3EE"></span>
+                </div>
+              </div>
+              <div class="acc-mark-preview" style="background: color-mix(in oklab, #efc697 20%, transparent);">
+                <img src="./assets/marks/kingsgate.svg" alt="KingsGate Pantry" style="max-height: 80px;" />
+              </div>
+              <p class="acc-desc">
+                De-stigmatizing student food insecurity through an uplifting, warm, and approachable co-op identity with rubber-stamp packaging.
+              </p>
+              <div class="acc-deliverables mono">
+                <span class="acc-tag">Identity System</span>
+                <span class="acc-tag">Stamp Graphics</span>
+                <span class="acc-tag">Social Campaign</span>
+              </div>
+              <a href="https://www.behance.net/gallery/223547467/Logo-Design-for-Kingsgate-Student-Pantry" target="_blank" rel="noreferrer" class="acc-btn mono">Open Project Documentation &rarr;</a>
+            </div>
           </div>
-          <div class="approach-cards">
-            <div class="panel-card approach-card">
-              <p class="panel-index">01</p>
+
+          <!-- Accordion Panel 5: Tata CLiQ -->
+          <div class="acc-panel" data-accent="#e8b7c4">
+            <div class="acc-spine mono">
+              <span class="acc-spine-num">05</span>
+              <span class="acc-spine-label">TATA CLIQ // VISUAL</span>
+              <span class="acc-spine-dot" style="background: #e8b7c4;"></span>
+            </div>
+            <div class="acc-expanded-content">
+              <div class="acc-head-row">
+                <div>
+                  <span class="mono" style="font-size: 0.72rem; color: #5e2938; font-weight: 700;">E-COMMERCE ART DIRECTION &middot; 2024</span>
+                  <h3 class="acc-title">Tata CLiQ Luxury</h3>
+                </div>
+                <div class="acc-swatch-cluster">
+                  <span class="acc-swatch-circle" style="background: #e8b7c4;" title="Accent: #E8B7C4"></span>
+                  <span class="acc-swatch-circle" style="background: #5e2938;" title="Plum Noir: #5E2938"></span>
+                  <span class="acc-swatch-circle" style="background: #f9f6f7;" title="Silk: #F9F6F7"></span>
+                </div>
+              </div>
+              <div class="acc-mark-preview" style="background: color-mix(in oklab, #e8b7c4 20%, transparent);">
+                <img src="./assets/marks/tata-cliq.svg" alt="Tata CLiQ" style="max-height: 80px;" />
+              </div>
+              <p class="acc-desc">
+                High-conversion visual art direction, premium typography treatments, and marketing banners across cross-channel mobile touchpoints.
+              </p>
+              <div class="acc-deliverables mono">
+                <span class="acc-tag">Art Direction</span>
+                <span class="acc-tag">Campaign Graphics</span>
+                <span class="acc-tag">Digital Retail</span>
+              </div>
+              <a href="https://www.behance.net/gallery/209064377/Visual-Design-for-Tata-Cliq" target="_blank" rel="noreferrer" class="acc-btn mono">Open Project Documentation &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="process" id="process" aria-labelledby="process-title">
+        <div class="section-head">
+          <p class="eyebrow mono">Process</p>
+          <h2 id="process-title">Research-led thinking, expressive outcomes.</h2>
+        </div>
+        <div class="process-body">
+          <div class="process-index" aria-hidden="true">
+            <span class="process-num" id="process-num">01</span>
+            <span class="process-total mono">/ 04</span>
+          </div>
+          <ol class="process-steps" id="process-steps">
+            <li class="step is-active" data-index="01">
+              <span class="step-num mono">01 / 04</span>
               <h3>Listen closely</h3>
               <p>
                 I start by understanding the audience, context, and business intent before defining a direction. I use
                 the 5Ws and 1H to ask the right (and sometimes uncomfortable) questions.
               </p>
-            </div>
-            <div class="panel-card approach-card">
-              <p class="panel-index">02</p>
+            </li>
+            <li class="step" data-index="02">
+              <span class="step-num mono">02 / 04</span>
               <h3>Define the problem</h3>
-              <p>
-                A clear problem sets the direction. It keeps every design decision focused and purposeful.
-              </p>
-            </div>
-            <div class="panel-card approach-card">
-              <p class="panel-index">03</p>
+              <p>A clear problem sets the direction. It keeps every design decision focused and purposeful.</p>
+            </li>
+            <li class="step" data-index="03">
+              <span class="step-num mono">03 / 04</span>
               <h3>Sketch, ideate &amp; shape the system</h3>
-              <p>
-                Ideas first, pixels later. I use typography, color, and hierarchy to build expressive, scalable systems.
-              </p>
-            </div>
-            <div class="panel-card approach-card">
-              <p class="panel-index">04</p>
+              <p>Ideas first, pixels later. I use typography, color, and hierarchy to build expressive, scalable systems.</p>
+            </li>
+            <li class="step" data-index="04">
+              <span class="step-num mono">04 / 04</span>
               <h3>Refine &amp; iterate</h3>
               <p>
                 I polish, test, and tweak considering the client's feedback at all levels. So the final work feels
                 clear, strategic, and effortless.
               </p>
-            </div>
-          </div>
-        </section>
+            </li>
+          </ol>
+        </div>
+      </section>
 
-        <section class="photo-section" id="photos" aria-label="Photo gallery">
-          <div class="photo-section-head">
-            <p class="eyebrow">Photos</p>
-            <div class="photo-carousel-controls" aria-label="Gallery navigation">
-              <button class="photo-carousel-btn" id="photo-prev" aria-label="Previous photo" aria-controls="photo-track">&#8592;</button>
-              <button class="photo-carousel-btn" id="photo-next" aria-label="Next photo" aria-controls="photo-track">&#8594;</button>
+      <section class="toolbox" id="craft" aria-labelledby="craft-title">
+        <div class="section-head">
+          <p class="eyebrow mono">Craft</p>
+          <h2 id="craft-title">Tools I shape with. Methods I think through.</h2>
+        </div>
+        <div class="craft-board">
+          <div class="craft-col craft-col-tools">
+            <p class="mono craft-label">Studio tools</p>
+            <ul class="craft-tools">
+              <li><span class="craft-tool-mark" aria-hidden="true"><img src="./assets/tool-logos/photoshop.svg" alt="" width="28" height="28" /></span><span class="craft-tool-name">Photoshop</span><span class="mono craft-tool-tag">Raster</span></li>
+              <li><span class="craft-tool-mark" aria-hidden="true"><img src="./assets/tool-logos/illustrator.svg" alt="" width="28" height="28" /></span><span class="craft-tool-name">Illustrator</span><span class="mono craft-tool-tag">Vector</span></li>
+              <li><span class="craft-tool-mark" aria-hidden="true"><img src="./assets/tool-logos/indesign.svg" alt="" width="28" height="28" /></span><span class="craft-tool-name">InDesign</span><span class="mono craft-tool-tag">Print</span></li>
+              <li><span class="craft-tool-mark" aria-hidden="true"><img src="./assets/tool-logos/premierepro.svg" alt="" width="28" height="28" /></span><span class="craft-tool-name">Premiere Pro</span><span class="mono craft-tool-tag">Motion</span></li>
+              <li><span class="craft-tool-mark" aria-hidden="true"><img src="./assets/tool-logos/figma.svg" alt="" width="28" height="28" /></span><span class="craft-tool-name">Figma</span><span class="mono craft-tool-tag">UI</span></li>
+              <li><span class="craft-tool-mark" aria-hidden="true"><img src="./assets/tool-logos/adobexd.svg" alt="" width="28" height="28" /></span><span class="craft-tool-name">Adobe XD</span><span class="mono craft-tool-tag">UI</span></li>
+              <li><span class="craft-tool-mark" aria-hidden="true"><img src="./assets/tool-logos/miro.svg" alt="" width="28" height="28" /></span><span class="craft-tool-name">Miro</span><span class="mono craft-tool-tag">Rooms</span></li>
+            </ul>
+          </div>
+          <div class="craft-col craft-col-methods">
+            <p class="mono craft-label">How I work</p>
+            <ol class="craft-methods">
+              <li><span class="mono">01</span><span class="craft-method-copy"><strong>Design Thinking</strong><em>Frame the brief before the pixels.</em></span></li>
+              <li><span class="mono">02</span><span class="craft-method-copy"><strong>Design Research</strong><em>Listen, map, and pressure-test assumptions.</em></span></li>
+              <li><span class="mono">03</span><span class="craft-method-copy"><strong>Workshop Design</strong><em>Structure rooms where ideas can collide.</em></span></li>
+              <li><span class="mono">04</span><span class="craft-method-copy"><strong>Facilitation</strong><em>Guide groups toward a shared decision.</em></span></li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section class="places" id="photos" aria-labelledby="places-title">
+        <div class="section-head">
+          <p class="eyebrow mono">Between places</p>
+          <h2 id="places-title">From India to the UK to the US &mdash; and the rooms in between.</h2>
+        </div>
+        <div class="places-band">
+          <figure class="place place-a">
+            <img
+              src="./assets/photos/2.jpg"
+              alt="The Food of Us team in hi-vis vests in front of a green wall with bunting and project posters"
+              loading="lazy"
+              width="1024"
+              height="1014"
+            />
+          </figure>
+          <figure class="place place-b">
+            <img
+              src="./assets/photos/whatsapp-image-2026-04-10-2-43-03-pm-1.jpeg"
+              alt="Two Food of Us community posters asking 'What food do you love?' pinned to a green wall under bunting"
+              loading="lazy"
+              width="768"
+              height="1024"
+            />
+          </figure>
+          <figure class="place place-c">
+            <img
+              src="./assets/photos/photos_03.jpeg"
+              alt="Workshop group gathered outside Alton Arts Hub in London"
+              loading="lazy"
+              width="1024"
+              height="745"
+            />
+          </figure>
+        </div>
+        <p class="places-caption mono">Community workshops &middot; Food of Us &middot; Alton Arts Hub, London</p>
+      </section>
+
+      <section class="trajectory" id="experience" aria-labelledby="trajectory-title">
+        <div class="section-head trajectory-head">
+          <div class="trajectory-head-meta">
+            <p class="eyebrow mono">Practice &middot; Experience &middot; AI Systems</p>
+            <div class="availability-chip mono">
+              <span class="live-dot" aria-hidden="true"></span>
+              <span>Available for Strategic Design &amp; Consultations &middot; USA</span>
             </div>
           </div>
-          <div class="photo-carousel" id="photo-carousel" role="region" tabindex="0" aria-label="Photos gallery, use arrow keys or buttons to navigate">
-            <div class="photo-carousel-viewport">
-              <div class="photo-carousel-track" id="photo-track" aria-live="polite">
-                <div class="photo-carousel-slide">
-                  <figure class="photo-carousel-figure">
-                    <img src="./assets/photos/2.jpg" alt="Group photo from a community event" loading="lazy" />
-                  </figure>
+          <div class="trajectory-head-row">
+            <h2 id="trajectory-title">From studio craft to civic systems &amp; AI-native workflows.</h2>
+            <p class="trajectory-lede">
+              4+ years of cross-border practice spanning India, the UK, and the USA. Pairing classical visual hierarchy and participatory design research with generative AI workflows.
+            </p>
+          </div>
+        </div>
+
+        <!-- Augmented Practice: Interactive Workflows & Grounded Case Studies -->
+        <div class="ai-gallery">
+          <div class="ai-gallery-header">
+            <div class="ai-gallery-top-row">
+              <div class="ai-gallery-tagline">
+                <span class="mono ai-tag-label">Augmented Practice</span>
+                <span class="mono ai-tag-desc">Intelligence + Aesthetics &middot; 2026 Studio Stack</span>
+              </div>
+            </div>
+            <h3 class="ai-gallery-headline">How I orchestrate AI into systems, research &amp; direction.</h3>
+          </div>
+
+          <!-- OPTION A: Living Interactive Stage (Realistic Workflows) -->
+          <div class="stage-layout">
+            <!-- Left Column: Realistic AI Design Workflows -->
+            <div class="stage-nav">
+              <!-- Tab 1: Design Systems / Tokens -->
+              <button class="stage-tab is-active" data-stage="theme" type="button">
+                <div class="stage-tab-meta mono">
+                  <span class="stage-tab-num">01 // ACCESSIBILITY</span>
+                  <span class="stage-tab-field">Figma AI &middot; WCAG Tokens</span>
                 </div>
-                <div class="photo-carousel-slide">
-                  <figure class="photo-carousel-figure">
-                    <img src="./assets/photos/photos_03.jpeg" alt="Group at Alton Arts Hub" loading="lazy" />
-                  </figure>
+                <h4 class="stage-tab-title">Semantic Palette &amp; Contrast Matrix</h4>
+                <p class="stage-tab-desc">Generating accessible color token harmonies from verbal moodboards with automated WCAG AAA compliance checks.</p>
+              </button>
+
+              <!-- Tab 2: Design Research / Claude -->
+              <button class="stage-tab" data-stage="synthesis" type="button">
+                <div class="stage-tab-meta mono">
+                  <span class="stage-tab-num">02 // RESEARCH</span>
+                  <span class="stage-tab-field">Claude &middot; Qualitative Synthesis</span>
                 </div>
-                <div class="photo-carousel-slide">
-                  <figure class="photo-carousel-figure">
-                    <img src="./assets/photos/whatsapp-image-2026-04-10-2-43-03-pm-1.jpeg" alt="Photos section image" loading="lazy" />
-                  </figure>
+                <h4 class="stage-tab-title">Transcripts to Strategic Insights</h4>
+                <p class="stage-tab-desc">Clustering 200+ raw citizen workshop voices into structured affinity themes and actionable &ldquo;How Might We&rdquo; briefs.</p>
+              </button>
+
+              <!-- Tab 3: UI/UX State Architecture & Edge Cases -->
+              <button class="stage-tab" data-stage="edge" type="button">
+                <div class="stage-tab-meta mono">
+                  <span class="stage-tab-num">03 // UI/UX SYSTEMS</span>
+                  <span class="stage-tab-field">Claude &middot; Edge-Case Architecture</span>
+                </div>
+                <h4 class="stage-tab-title">State Matrix &amp; Edge-Case Discovery</h4>
+                <p class="stage-tab-desc">Using AI as a QA partner to anticipate offline dropouts, empty states, and race conditions across user flows before final wireframes.</p>
+              </button>
+
+              <!-- Tab 4: Art Direction / GenAI -->
+              <button class="stage-tab" data-stage="metaphor" type="button">
+                <div class="stage-tab-meta mono">
+                  <span class="stage-tab-num">04 // DIRECTION</span>
+                  <span class="stage-tab-field">GenAI &middot; Visual Discovery</span>
+                </div>
+                <h4 class="stage-tab-title">Latent Metaphor Exploration</h4>
+                <p class="stage-tab-desc">Exploring unexpected visual metaphors and conceptual moodboards in the first 48 hours to align clients 3x faster.</p>
+              </button>
+            </div>
+
+            <!-- Right Column: Interactive Living Stage Screen -->
+            <div class="stage-screen">
+              <div class="stage-screen-head mono">
+                <div class="stage-screen-dots">
+                  <span class="stage-screen-dot"></span>
+                  <span class="stage-screen-dot"></span>
+                  <span class="stage-screen-dot"></span>
+                </div>
+                <span id="stageScreenTitle">LIVE DEMO // 01 &middot; ACCESSIBLE COLOR TOKEN GENERATOR</span>
+              </div>
+
+              <!-- PANEL 1: Semantic Palette & WCAG Contrast Matrix -->
+              <div class="stage-panel is-active" id="panel-theme">
+                <div class="demo-box">
+                  <div class="demo-ctrl-bar mono">
+                    <span>SELECT MOOD PROMPT:</span>
+                    <div class="chip-row">
+                      <button class="demo-chip is-active" data-theme="civic" type="button">Civic Warmth</button>
+                      <button class="demo-chip" data-theme="tech" type="button">Kinetic Precision</button>
+                      <button class="demo-chip" data-theme="culinary" type="button">Artisanal Hearth</button>
+                    </div>
+                  </div>
+
+                  <!-- Dynamic Swatches -->
+                  <div class="theme-display" id="themeDisplay">
+                    <div class="swatches-row">
+                      <div class="swatch-cell">
+                        <div class="swatch-color" id="swatchPrimary" style="background: #bcd7db;"></div>
+                        <span class="swatch-label mono" id="swatchPrimaryLabel">#BCD7DB</span>
+                        <span class="swatch-role mono">Dominant</span>
+                      </div>
+                      <div class="swatch-cell">
+                        <div class="swatch-color" id="swatchSecondary" style="background: #1e4b52;"></div>
+                        <span class="swatch-label mono" id="swatchSecondaryLabel">#1E4B52</span>
+                        <span class="swatch-role mono">Deep Accent</span>
+                      </div>
+                      <div class="swatch-cell">
+                        <div class="swatch-color" id="swatchGround" style="background: #f4f2eb;"></div>
+                        <span class="swatch-label mono" id="swatchGroundLabel">#F4F2EB</span>
+                        <span class="swatch-role mono">Neutral Ground</span>
+                      </div>
+                      <div class="swatch-cell">
+                        <div class="swatch-color" id="swatchInk" style="background: #16141f;"></div>
+                        <span class="swatch-label mono" id="swatchInkLabel">#16141F</span>
+                        <span class="swatch-role mono">Ink Strict</span>
+                      </div>
+                    </div>
+
+                    <!-- Live Component Card Rendered in Theme -->
+                    <div class="rendered-ui-specimen" id="renderedCard" style="background: #f4f2eb; border-color: #bcd7db;">
+                      <div class="specimen-top">
+                        <span class="specimen-badge mono" id="contrastBadge" style="background: #1e4b52; color: #f4f2eb;">
+                          WCAG AAA &middot; 7.8:1 PASS
+                        </span>
+                        <span class="mono" style="font-size: 0.68rem; color: var(--ink-soft);" id="tokenPathLabel">tokens.theme.civic</span>
+                      </div>
+                      <h4 class="specimen-title" id="specimenTitle" style="color: #16141f;">Community Pantry Network</h4>
+                      <p class="specimen-body" id="specimenBody" style="color: #1e4b52;">
+                        Prompt-assisted semantic cascades enforce legible contrast ratios across light and dark client surfaces.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- PANEL 2: Qualitative Research Synthesis (Claude) -->
+              <div class="stage-panel" id="panel-synthesis">
+                <div class="demo-box">
+                  <div class="demo-ctrl-bar mono">
+                    <span>SELECT RESEARCH CLUSTER:</span>
+                    <div class="chip-row">
+                      <button class="synth-chip is-active" data-synth="isolation" type="button">Civic Trust</button>
+                      <button class="synth-chip" data-synth="surplus" type="button">Food Loops</button>
+                      <button class="synth-chip" data-synth="multilingual" type="button">Language Barriers</button>
+                    </div>
+                  </div>
+
+                  <div class="synthesis-board">
+                    <!-- Raw Citizen Voices Ingested -->
+                    <div class="synth-col">
+                      <span class="synth-col-head mono">RAW CITIZEN QUOTES (GLA WORKSHOPS):</span>
+                      <div class="raw-quote-card" id="rawQuote1">&ldquo;I lived here 40 years, but when the high street market shut, I had nowhere to see neighbors.&rdquo;</div>
+                      <div class="raw-quote-card" id="rawQuote2">&ldquo;Older residents feel excluded from modern digital ordering kiosks.&rdquo;</div>
+                    </div>
+
+                    <div class="synth-arrow">&rarr;</div>
+
+                    <!-- AI Synthesis & Actionable HMW -->
+                    <div class="synth-col">
+                      <span class="synth-col-head mono">SYNTHESIZED &ldquo;HOW MIGHT WE&rdquo; DIRECTIVE:</span>
+                      <div class="hmw-card">
+                        <span class="hmw-tag mono" id="hmwTag">OPPORTUNITY PILLAR 01</span>
+                        <h5 class="hmw-head" id="hmwHead">How might we turn vacant storefronts into intergenerational co-cooking hubs?</h5>
+                        <p class="hmw-body" id="hmwBody">
+                          Pairing physical community kitchen tables with offline chalkboard noticeboards to re-establish neighborhood connection without digital friction.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- PANEL 3: UI/UX State Matrix & Edge-Case Discovery -->
+              <div class="stage-panel" id="panel-edge">
+                <div class="demo-box">
+                  <div class="demo-ctrl-bar mono">
+                    <span>SELECT USER JOURNEY FLOW:</span>
+                    <div class="chip-row">
+                      <button class="edge-chip is-active" data-flow="mmt" type="button">MakeMyTrip: Remote Trek Booking</button>
+                      <button class="edge-chip" data-flow="cliq" type="button">Tata CLiQ: Luxury Flash Cart</button>
+                      <button class="edge-chip" data-flow="pantry" type="button">KingsGate: Multilingual Kiosk</button>
+                    </div>
+                  </div>
+
+                  <div class="edge-stage">
+                    <!-- Top Row: Node Context & Edge-Case Alert -->
+                    <div class="edge-top-row">
+                      <div class="edge-context">
+                        <span class="mono edge-node-tag" id="edgeNodeTag">JOURNEY STEP 03 // BOOKING &amp; PERMIT CHECKOUT</span>
+                        <h4 class="edge-flow-title" id="edgeFlowTitle">High-Altitude Trek Reservation</h4>
+                        <p class="edge-flow-desc" id="edgeFlowDesc">User attempts to book a high-altitude Himalayan trek and verify permits while at remote mountain trailheads.</p>
+                      </div>
+                      <div class="edge-alert-box" id="edgeAlertBox">
+                        <span class="mono edge-alert-badge" id="edgeAlertBadge">EDGE CASE: NETWORK FAILURE</span>
+                        <p class="edge-alert-text" id="edgeAlertText">Spotty 2G/offline dropout mid-payment causes dropped booking and duplicate bank debits.</p>
+                      </div>
+                    </div>
+
+                    <!-- Bottom Row: The Designed UI Solution Specimen -->
+                    <div class="edge-solution-card" id="edgeSolutionCard">
+                      <div class="solution-header">
+                        <div class="solution-status-indicator">
+                          <span class="status-pulse-dot" id="edgePulseDot" style="background: #e09f3e;"></span>
+                          <span class="mono solution-status-label" id="edgeStatusLabel">OFFLINE SYNC PENDING</span>
+                        </div>
+                        <span class="mono" style="font-size: 0.65rem; color: var(--ink-soft);" id="edgeHandoffTag">STATE: PERMIT_CACHED_LOCAL</span>
+                      </div>
+
+                      <div class="solution-body">
+                        <h5 class="solution-title" id="edgeUiTitle">Trek Permit Cached Locally</h5>
+                        <p class="solution-desc" id="edgeUiDesc">
+                          Your Himalayan trek slot is held offline for 6 hours. As soon as you re-enter signal range, payment token syncs automatically with zero duplicate charges.
+                        </p>
+                        <div class="solution-action-row">
+                          <button class="solution-btn-primary" id="edgeBtnPrimary" type="button">View Offline Permit Pass</button>
+                          <span class="mono solution-meta-note" id="edgeMetaNote">Queue ID: #MMT-TREK-8921 &middot; Auto-retry in background</span>
+                        </div>
+                      </div>
+
+                      <div class="solution-footer-strip mono" id="edgeSpecNote">
+                        HANDOFF SPEC: Graceful degradation UI &middot; SQLite local persistence &middot; Clear manual recovery action
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- PANEL 4: Latent Metaphor Exploration -->
+              <div class="stage-panel" id="panel-metaphor">
+                <div class="demo-box">
+                  <div class="demo-ctrl-bar mono">
+                    <span>SELECT BRAND BRIEF:</span>
+                    <div class="chip-row">
+                      <button class="meta-chip is-active" data-brief="food" type="button">Food of Us</button>
+                      <button class="meta-chip" data-brief="gear" type="button">Synnova</button>
+                      <button class="meta-chip" data-brief="pantry" type="button">KingsGate Pantry</button>
+                      <button class="meta-chip" data-brief="cooking" type="button">Stories of Cooking</button>
+                    </div>
+                  </div>
+
+                  <div class="metaphor-grid">
+                    <div class="meta-box">
+                      <span class="meta-step mono">STEP 01 // TEXT SEED</span>
+                      <p class="meta-desc" id="metaPrompt">
+                        &ldquo;Communal stew pot, circular sustainable loop, human warmth, woodcut printing textures&rdquo;
+                      </p>
+                    </div>
+                    <div class="meta-box">
+                      <span class="meta-step mono">STEP 02 // LATENT METAPHOR</span>
+                      <p class="meta-desc" id="metaConcept">
+                        The bowl as an open hand; steam ribbons converging into circular civic community bonds.
+                      </p>
+                    </div>
+                    <div class="meta-box highlight-mark">
+                      <span class="meta-step mono">STEP 03 // VECTOR CRAFT</span>
+                      <div class="meta-mark-wrap" id="metaMark">
+                        <svg width="130" height="64" viewBox="0 0 130 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Food of Us Vector Mark">
+                          <circle cx="65" cy="30" r="26" stroke="#bcd7db" stroke-width="1.5" stroke-dasharray="3 2" opacity="0.8"/>
+                          <path d="M47 32 C49 44, 81 44, 83 32" stroke="#1e4b52" stroke-width="2.5" stroke-linecap="round" fill="color-mix(in oklab, #bcd7db 30%, transparent)"/>
+                          <path d="M55 28 C55 18, 63 16, 65 10 C67 16, 75 18, 75 28" stroke="#1e4b52" stroke-width="2" stroke-linecap="round" fill="none"/>
+                          <path d="M60 29 C60 22, 65 20, 65 15 C65 20, 70 22, 70 29" stroke="#bcd7db" stroke-width="1.8" stroke-linecap="round"/>
+                          <circle cx="65" cy="10" r="2.5" fill="#1e4b52"/>
+                          <circle cx="47" cy="32" r="2" fill="#1e4b52"/>
+                          <circle cx="83" cy="32" r="2" fill="#1e4b52"/>
+                          <text x="65" y="55" text-anchor="middle" font-family="Syne, Avenir Next, sans-serif" font-weight="700" font-size="8.5" fill="#16141f" letter-spacing="0.06em">food of us</text>
+                        </svg>
+                      </div>
+                      <span class="mono" style="font-size: 0.65rem; color: var(--ink-soft);">Final Production Mark</span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-        </section>
 
-        <section class="contact-section" id="contact">
-          <div>
-            <p class="eyebrow">Contact me</p>
-            <h2>YOU CAN REACH ME HERE</h2>
+          <!-- Stacked Augmented Practice: Real Project Grounded Outcomes (Temporarily commented out)
+          <div class="ai-gallery-header" style="margin-top: 4.5rem;">
+            <div class="ai-gallery-tagline">
+              <span class="mono ai-tag-label">Augmented Practice</span>
+              <span class="mono ai-tag-desc">Grounded Case Studies &middot; Proven Metrics</span>
+            </div>
+            <h3 class="ai-gallery-headline">AI deployed in civic, corporate &amp; digital production.</h3>
           </div>
-          <div class="contact-links">
-            <a href="mailto:richagandhi.work@gmail.com">richagandhi.work@gmail.com</a>
-            <a href="https://www.linkedin.com/in/gandhiricha/" target="_blank" rel="noreferrer">LinkedIn</a>
-            <a href="https://www.behance.net/gandhiricha" target="_blank" rel="noreferrer">Behance</a>
-          </div>
-        </section>
-      </main>
-    </div>
 
-    <script src="./data/behance-portfolio.js"></script>
-    <script src="./script.js"></script>
-    <script src="./photos-carousel.js"></script>
+          <div class="grounded-rows">
+            [Case Study 1]
+            <article class="grounded-row">
+              <div class="grounded-col-org">
+                <span class="grounded-tag mono">CIVIC SYSTEMS &middot; UK</span>
+                <span class="grounded-org-name">Greater London Authority</span>
+                <span class="mono" style="font-size: 0.72rem; color: var(--ink-soft);">Claude + Design Research</span>
+              </div>
+              <div class="grounded-col-body">
+                <h4 class="grounded-headline">Synthesizing 200+ Citizen Voices into Civic Service Blueprints</h4>
+                <p class="grounded-desc">
+                  In partnership with the Mayor of London, ingested hundreds of unstructured community workshop transcripts. Used Claude for thematic affinity mapping to formulate town center service blueprints, public street banners, and launch collateral in New Malden.
+                </p>
+              </div>
+              <div class="grounded-col-stat mono">
+                <span class="grounded-stat-num">200+</span>
+                <span class="grounded-stat-lbl">Citizens Engaged</span>
+                <span style="font-size: 0.65rem; color: var(--accent-ink); margin-top: 0.2rem;">8 Workshops Led</span>
+              </div>
+            </article>
+
+            [Case Study 2]
+            <article class="grounded-row">
+              <div class="grounded-col-org">
+                <span class="grounded-tag mono">STUDIO BRANDING &middot; INDIA</span>
+                <span class="grounded-org-name">Cognito India</span>
+                <span class="mono" style="font-size: 0.72rem; color: var(--ink-soft);">AI + Figma Token Cascades</span>
+              </div>
+              <div class="grounded-col-body">
+                <h4 class="grounded-headline">Automating Multi-Surface Brand Consistency Across 12+ Campaigns</h4>
+                <p class="grounded-desc">
+                  Architected prompt-assisted Figma design token structures, automating cross-device collateral variants, publication grids, and promotional assets for corporate and consumer clients with zero visual drift.
+                </p>
+              </div>
+              <div class="grounded-col-stat mono">
+                <span class="grounded-stat-num">12+</span>
+                <span class="grounded-stat-lbl">Brand Campaigns</span>
+                <span style="font-size: 0.65rem; color: var(--accent-ink); margin-top: 0.2rem;">Multi-Sector Scale</span>
+              </div>
+            </article>
+
+            [Case Study 3]
+            <article class="grounded-row">
+              <div class="grounded-col-org">
+                <span class="grounded-tag mono">FRONTEND SYNC &middot; USA</span>
+                <span class="grounded-org-name">Living Prototypes</span>
+                <span class="mono" style="font-size: 0.72rem; color: var(--ink-soft);">Codex + Interactive Code</span>
+              </div>
+              <div class="grounded-col-body">
+                <h4 class="grounded-headline">Eliminating Design-to-Code Drift with Reactive Web Components</h4>
+                <p class="grounded-desc">
+                  Translating visual mockups directly into living, accessible web micro-interactions. Empowering clients and development teams to interact with real kinetic prototypes before writing backend code.
+                </p>
+              </div>
+              <div class="grounded-col-stat mono">
+                <span class="grounded-stat-num">0%</span>
+                <span class="grounded-stat-lbl">Fidelity Drift</span>
+                <span style="font-size: 0.65rem; color: var(--accent-ink); margin-top: 0.2rem;">Living Code Canvas</span>
+              </div>
+            </article>
+
+            [Case Study 4]
+            <article class="grounded-row">
+              <div class="grounded-col-org">
+                <span class="grounded-tag mono">CREATIVE DIRECTION &middot; GLOBAL</span>
+                <span class="grounded-org-name">Speculative Worlds</span>
+                <span class="mono" style="font-size: 0.72rem; color: var(--ink-soft);">GenAI + Visual Discovery</span>
+              </div>
+              <div class="grounded-col-body">
+                <h4 class="grounded-headline">Rapid Atmospheric Worldbuilding &amp; Visual Metaphor Convergence</h4>
+                <p class="grounded-desc">
+                  Deploying generative vision models during early brand strategy phases to discover latent aesthetic connections, visual metaphors, and expressive moodboards—accelerating alignment in days instead of weeks.
+                </p>
+              </div>
+              <div class="grounded-col-stat mono">
+                <span class="grounded-stat-num">3x</span>
+                <span class="grounded-stat-lbl">Faster Alignment</span>
+                <span style="font-size: 0.65rem; color: var(--accent-ink); margin-top: 0.2rem;">Concept Worldbuilding</span>
+              </div>
+            </article>
+          </div>
+          -->
+        </div>
+
+        <!-- Editorial Career Trajectory Ledger -->
+        <div class="trajectory-ledger">
+          <div class="ledger-header">
+            <span class="ledger-col-title">Practice &amp; Experience</span>
+            <span class="mono ledger-col-meta">4+ Years Active &middot; India &rarr; UK &rarr; USA</span>
+          </div>
+
+          <div class="ledger-rows">
+            <!-- Role 1: Design Consultant -->
+            <article class="ledger-row is-current-role">
+              <div class="ledger-col-time mono">
+                <span class="ledger-dates">Jan 2026 &mdash; Present</span>
+                <span class="ledger-duration">9 mos &middot; Active</span>
+                <span class="ledger-loc">
+                  <img class="flag-img" src="./assets/marks/flag-us.svg" alt="USA flag" />
+                  <span>USA &middot; Remote / Hybrid</span>
+                </span>
+              </div>
+              <div class="ledger-col-main">
+                <div class="ledger-header-row">
+                  <div class="ledger-title-group">
+                    <h3 class="ledger-role">Design Consultant</h3>
+                    <span class="ledger-org">Freelance &middot; Independent Practice</span>
+                  </div>
+                  <div class="ledger-stat mono">
+                    <span class="stat-num">AI+</span>
+                    <span class="stat-lbl">Next-Gen Strategy</span>
+                  </div>
+                </div>
+                <span class="ledger-impact-pill mono">&bull; Active Consulting &middot; AI + Design Systems</span>
+                <p class="ledger-summary">
+                  Advising cross-border clients on brand positioning, identity systems, and user-centered design communication for emerging ventures and modern digital products. Integrating AI-assisted prototyping and dynamic token architectures.
+                </p>
+                <div class="ledger-tags mono">
+                  <span class="tag-badge">AI + Figma</span>
+                  <span class="tag-badge">Brand Positioning</span>
+                  <span class="tag-badge">Design Strategy</span>
+                  <span class="tag-badge">Generative Prototyping</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Role 2: Cognito, India -->
+            <article class="ledger-row">
+              <div class="ledger-col-time mono">
+                <span class="ledger-dates">May 2025 &mdash; Dec 2025</span>
+                <span class="ledger-duration">8 mos &middot; Full-time</span>
+                <span class="ledger-loc">
+                  <img class="flag-img" src="./assets/marks/flag-in.svg" alt="India flag" />
+                  <span>Vadodara, India</span>
+                </span>
+              </div>
+              <div class="ledger-col-main">
+                <div class="ledger-header-row">
+                  <div class="ledger-title-group">
+                    <h3 class="ledger-role">Designer</h3>
+                    <span class="ledger-org">Cognito, India</span>
+                  </div>
+                  <div class="ledger-stat mono">
+                    <span class="stat-num">12+</span>
+                    <span class="stat-lbl">Brand Campaigns</span>
+                  </div>
+                </div>
+                <span class="ledger-impact-pill mono">&bull; Visual Systems &middot; Multi-sector Brand Campaigns</span>
+                <p class="ledger-summary">
+                  Led visual design execution, brand collateral, and publication layouts, collaborating with multidisciplinary teams to craft coherent brand narratives for diverse corporate and consumer-facing industry clients.
+                </p>
+                <div class="ledger-tags mono">
+                  <span class="tag-badge">Visualization</span>
+                  <span class="tag-badge">Graphic Design</span>
+                  <span class="tag-badge">Brand Collateral</span>
+                  <span class="tag-badge">Publication Systems</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Role 3: Vegecoopia CIC -->
+            <article class="ledger-row">
+              <div class="ledger-col-time mono">
+                <span class="ledger-dates">May 2024 &mdash; Sep 2024</span>
+                <span class="ledger-duration">5 mos &middot; Contract</span>
+                <span class="ledger-loc">
+                  <img class="flag-img" src="./assets/marks/flag-gb.svg" alt="UK flag" />
+                  <span>London, UK</span>
+                </span>
+              </div>
+              <div class="ledger-col-main">
+                <div class="ledger-header-row">
+                  <div class="ledger-title-group">
+                    <h3 class="ledger-role">Project Coordinator &amp; Visual Designer</h3>
+                    <span class="ledger-org">Vegecoopia CIC &middot; London</span>
+                  </div>
+                  <div class="ledger-stat mono">
+                    <span class="stat-num">8</span>
+                    <span class="stat-lbl">Civic Workshops Led</span>
+                  </div>
+                </div>
+                <span class="ledger-impact-pill mono">&bull; Led 8 Community Workshops &middot; Participatory Design</span>
+                <p class="ledger-summary">
+                  Directed visual identity and digital workflows for community co-cooking initiatives. Led 8 participatory workshops with multicultural participants, weaving inclusivity, sustainability, and food narratives into cohesive design outcomes. Built digital workflow management systems.
+                </p>
+                <div class="ledger-tags mono">
+                  <span class="tag-badge">Participatory Design</span>
+                  <span class="tag-badge">8 Workshops Led</span>
+                  <span class="tag-badge">Claude &middot; Synthesis</span>
+                  <span class="tag-badge">Workflow Systems</span>
+                </div>
+              </div>
+            </article>
+
+            <!-- Role 4: Greater London Authority -->
+            <article class="ledger-row">
+              <div class="ledger-col-time mono">
+                <span class="ledger-dates">Mar 2023 &mdash; May 2024</span>
+                <span class="ledger-duration">1 yr 3 mos &middot; Contract</span>
+                <span class="ledger-loc">
+                  <img class="flag-img" src="./assets/marks/flag-gb.svg" alt="UK flag" />
+                  <span>London, UK</span>
+                </span>
+              </div>
+              <div class="ledger-col-main">
+                <div class="ledger-header-row">
+                  <div class="ledger-title-group">
+                    <h3 class="ledger-role">Visual Designer | Design Researcher</h3>
+                    <span class="ledger-org">Greater London Authority &middot; UK</span>
+                  </div>
+                  <div class="ledger-stat mono">
+                    <span class="stat-num">200+</span>
+                    <span class="stat-lbl">Citizens Engaged</span>
+                  </div>
+                </div>
+                <span class="ledger-impact-pill mono">&bull; 200+ Participants &middot; Public Street Banners &middot; Mayor of London</span>
+                <p class="ledger-summary">
+                  Co-conducted community workshops engaging 200+ participants using Design Thinking and Service Blueprints. Synthesized primary qualitative insights into public street banners, project brochures, and launch collateral for the town center in New Malden.
+                </p>
+                <div class="ledger-tags mono">
+                  <span class="tag-badge">200+ Participants</span>
+                  <span class="tag-badge">Service Blueprints</span>
+                  <span class="tag-badge">Design Research</span>
+                  <span class="tag-badge">Public Street Banners</span>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- Academic Foundation & Specialized Credentials -->
+        <div class="academy-stage">
+          <div class="academy-grid">
+            <!-- Academic Degrees -->
+            <div class="academy-col">
+              <div class="academy-header">
+                <span class="academy-tag">Academic Foundation</span>
+                <span class="mono academy-sub">Formal Design Disciplines</span>
+              </div>
+              <div class="academy-cards">
+                <article class="academy-card">
+                  <div class="academy-card-meta mono">
+                    <span class="academy-dates">Sep 2021 &mdash; Sep 2022</span>
+                    <span class="academy-loc">
+                      <img class="flag-img" src="./assets/marks/flag-gb.svg" alt="UK flag" />
+                      <span>London, UK</span>
+                    </span>
+                  </div>
+                  <h3 class="academy-degree">Master of Arts &mdash; MA, Sustainable Design</h3>
+                  <p class="academy-school">Kingston University London</p>
+                  <p class="academy-desc">
+                    Advanced specialization in social innovation design, circular economies, systemic change, and qualitative research methodologies.
+                  </p>
+                  <div class="ledger-tags mono">
+                    <span class="tag-badge">Social Innovation</span>
+                    <span class="tag-badge">Systemic Design</span>
+                    <span class="tag-badge">Research Strategy</span>
+                  </div>
+                </article>
+
+                <article class="academy-card">
+                  <div class="academy-card-meta mono">
+                    <span class="academy-dates">2016 &mdash; 2020</span>
+                    <span class="academy-loc">
+                      <img class="flag-img" src="./assets/marks/flag-in.svg" alt="India flag" />
+                      <span>Vadodara, India</span>
+                    </span>
+                  </div>
+                  <h3 class="academy-degree">Bachelor of Visual Arts &mdash; BVA, Applied Arts</h3>
+                  <p class="academy-school">The Maharaja Sayajirao University of Baroda</p>
+                  <p class="academy-desc">
+                    Four-year intensive studio training in typography, brand identity, grid systems, print craft, and visual communication.
+                  </p>
+                  <div class="ledger-tags mono">
+                    <span class="tag-badge">Graphic Design</span>
+                    <span class="tag-badge">Applied Arts</span>
+                    <span class="tag-badge">Typography</span>
+                  </div>
+                </article>
+              </div>
+            </div>
+
+            <!-- Credentials & Certifications -->
+            <div class="academy-col">
+              <div class="academy-header">
+                <span class="academy-tag">Industry Credentials</span>
+                <span class="mono academy-sub">Certifications &amp; Methods</span>
+              </div>
+              <div class="creds-stack">
+                <article class="cred-pill-card">
+                  <div class="cred-badge-icon mono" aria-hidden="true">UX</div>
+                  <div class="cred-details">
+                    <h4 class="cred-name">DFrame &mdash; UX &amp; UX Research</h4>
+                    <p class="cred-issuer">Indian Institute of Technology (IIT), Guwahati</p>
+                    <span class="mono cred-date-tag">Issued Jan 2023 &middot; Credential ID: 856afbac</span>
+                  </div>
+                </article>
+
+                <article class="cred-pill-card">
+                  <div class="cred-badge-icon mono" aria-hidden="true">RE</div>
+                  <div class="cred-details">
+                    <h4 class="cred-name">Learning Design Research</h4>
+                    <p class="cred-issuer">LinkedIn Learning</p>
+                    <span class="mono cred-date-tag">Issued Jun 2022 &middot; Research Methodologies</span>
+                  </div>
+                </article>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact" id="contact" aria-labelledby="contact-title">
+        <p class="eyebrow mono">Contact</p>
+        <h2 class="contact-title" id="contact-title">Let&rsquo;s make something worth remembering.</h2>
+        <a class="contact-email" href="mailto:richagandhi.work@gmail.com">richagandhi.work@<wbr />gmail.com</a>
+        <div class="contact-links mono">
+          <a href="https://www.linkedin.com/in/gandhiricha/" target="_blank" rel="noreferrer">LinkedIn</a>
+          <a href="https://www.behance.net/gandhiricha" target="_blank" rel="noreferrer">Behance</a>
+          <span class="route-node">
+            <img class="flag-img" src="./assets/marks/flag-in.svg" alt="India" /> IND &rarr;
+            <img class="flag-img" src="./assets/marks/flag-gb.svg" alt="UK" /> UK &rarr;
+            <img class="flag-img" src="./assets/marks/flag-us.svg" alt="USA" /> USA
+          </span>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-foot mono">
+      <span>&copy; 2026 Richa Gandhi</span>
+      <span>Designed and built by Richa Gandhi</span>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
+    <script src="./chroma.js" defer></script>
+    <script src="./script.js" defer></script>
   </body>
 </html>

@@ -42,8 +42,6 @@ Done items from the original list are in section 7. Still open:
 2. All review items are now closed (see section 7). Nothing is pending except the open questions in section 5.
 ## 5. Open questions
 
-- Add the employer's name to the Synnova card? Needs the name from Richa.
-- "User Research for a hackathon" has no imagery.
 - Medcycle and Make My Trip previews are crops of very tall Behance long-page images. Specific frames could replace them.
 
 ## 6. Housekeeping notes
@@ -78,6 +76,16 @@ Entries are added as each item lands.
 | Palette swatches are live | The three colour dots on each accordion panel are now buttons: click copies the hex to the clipboard and shows a short 'Copied #HEX' note (also announced to screen readers). Hit area padded to 44px, hover scale, keyboard focus ring. The clipboard code is now one shared helper used by both this and the Copy email button. | The palette colours are the site's own project accents, not official brand colours of those clients. Tested with a stubbed clipboard because the automated browser blocks the real one. |
 | Work page hover previews: skipped | Not built. Each Work row already shows its real image inline, so a hover preview would repeat what is on screen. | Revisit only if the rows go back to text-only. |
 | Side effects of the removal | The AI-stage mobile header dots overlap, the AI tab crossfade and the "demo stage fill" items from the review no longer apply. | They were part of the removed section. |
+
+### Round 3 (hero balance, Synnova credit, hackathon imagery)
+
+| Item | What changed | Notes |
+| --- | --- | --- |
+| Hero balance | The right side felt empty, so the round portrait moved to the right of the name, larger (180-340px, 22vw) and vertically centred on the text block. The name now sizes itself to the space left beside the portrait. Below 900px it becomes a single column with a 128px avatar above the name. Portrait re-cut at 720px for sharp high-density screens. | Still a circle with the accent ring, as requested earlier. |
+| Mobile nav | The 12px text rule had pushed 'Contact' to the edge. Wordmark and link spacing tightened; verified it fits with margin. | |
+| Synnova credit | Card now says the work was done with the team at **Cognito, India**, designed in **Figma**. Tags: Visual designer / Cognito, India / Figma (was Figma + Photoshop). Work page description updated to match. | Facts from the user: employer Cognito India, redesign done fully in Figma. |
+| Synnova image | The user replaced the live-site capture with her own cover mockup (ssets/Work/Portfolio_cover_image.webp, 1920x1080). That file was untracked while the code already referenced it; it is now committed. ssets/previews/synnova.jpg is no longer used. Alt text rewritten to describe the mockup. | Viewers see the full case study through the project link. The unused synnova.jpg can be deleted. |
+| Hackathon project | 'User Research for a hackathon' is the college club management app case study on the user's Wix portfolio. Added its real cover (ssets/previews/hackathon.jpg, cropped from her own page) and a factual description: 10-day UX case study, UXUI Hackathon run by IIT Guwahati, role UX researcher and UX designer, team of three. | Details taken from her own case study page. No award was claimed even though the cover shows a ribbon icon. |
 
 ### Not mine: uncommitted edits from the user in the working tree
 

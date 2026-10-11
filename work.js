@@ -120,6 +120,11 @@
       alt: "Three social media cards with bold purple and yellow typography",
       position: "50% 50%"
     },
+    "Synnova Gears and Transmissions": {
+      src: "./assets/previews/synnova.jpg",
+      alt: "Synnova website hero: a close-up of precision gears beside the headline Synergizing talents, innovating future",
+      position: "50% 0%"
+    },
     "Food of Us": {
       src: "./assets/photos/2.jpg",
       alt: "The Food of Us team in hi-vis vests in front of a green wall with bunting and project posters",

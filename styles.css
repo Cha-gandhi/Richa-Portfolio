@@ -122,7 +122,7 @@ p {
 
 .mono {
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.78rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
 }
@@ -232,7 +232,7 @@ p {
 
 .site-nav nav a {
   font-family: var(--font-mono);
-  font-size: 0.74rem;
+  font-size: 0.75rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   padding: 6px 0;
@@ -393,7 +393,7 @@ p {
   padding: 0;
   background: transparent;
   border: none;
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   letter-spacing: 0.08em;
   color: var(--ink);
 }
@@ -1019,7 +1019,7 @@ p {
 
 .craft-tool-tag {
   color: var(--ink-soft);
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   letter-spacing: 0.08em;
 }
 
@@ -1152,7 +1152,7 @@ p {
   border-radius: 999px;
   background: color-mix(in oklab, var(--ink) 4%, transparent);
   border: 1px solid color-mix(in oklab, var(--ink) 12%, transparent);
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   letter-spacing: 0.08em;
   color: var(--ink);
 }
@@ -1246,7 +1246,7 @@ p {
 }
 
 .ledger-duration {
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   color: var(--ink-soft);
   letter-spacing: 0.08em;
 }
@@ -1313,7 +1313,7 @@ p {
 }
 
 .stat-lbl {
-  font-size: 0.65rem;
+  font-size: 0.75rem;
   letter-spacing: 0.06em;
   color: var(--ink-soft);
   margin-top: 0.15rem;
@@ -1335,7 +1335,7 @@ p {
 }
 
 .tag-badge {
-  font-size: 0.68rem;
+  font-size: 0.75rem;
   letter-spacing: 0.05em;
   padding: 0.25rem 0.65rem;
   background: color-mix(in oklab, var(--ink) 4%, transparent);
@@ -1423,7 +1423,7 @@ p {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   letter-spacing: 0.06em;
   color: var(--ink-soft);
 }
@@ -1526,7 +1526,7 @@ p {
 }
 
 .cred-date-tag {
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   color: var(--ink-soft);
   letter-spacing: 0.04em;
 }
@@ -1759,7 +1759,7 @@ p {
     align-items: center;
     min-height: 44px;
     padding: 0;
-    font-size: 0.7rem;
+    font-size: 0.75rem;
     letter-spacing: 0.04em;
     background-position: 0 calc(50% + 12px);
   }

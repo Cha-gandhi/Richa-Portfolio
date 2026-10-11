@@ -44,8 +44,6 @@
     "Visual Design for Tata Cliq": "2021",
     "Publication Design": "2021",
     "Social Media Marketing Design": "2021",
-    "Feature Addition in Make My Trip App": "2019",
-    "Feature Addition in Make My Trip App.": "2019",
     "Dailyhunt Brand Identity": "2019",
     "Brand Development": "2019",
     "Medcycle - Brand development": "2019"
@@ -68,10 +66,6 @@
       "A brand development project shaping a clearer identity, tone, and visual language for a reuse-led service concept.",
     "Food of Us":
       "A service design project using research, community engagement, and food stories to understand shared experiences and needs.",
-    "Feature Addition in Make My Trip App":
-      "A UX concept exploring a new travel-booking feature through user flow, hierarchy, and interface thinking.",
-    "Feature Addition in Make My Trip App.":
-      "A UX concept exploring a new travel-booking feature through user flow, hierarchy, and interface thinking.",
     "User Research for a hackathon":
       "A research-led project translating user insights into clearer problem framing, opportunity areas, and design direction.",
     "Synnova Gears and Transmissions":
@@ -129,11 +123,6 @@
       src: "./assets/photos/2.jpg",
       alt: "The Food of Us team in hi-vis vests in front of a green wall with bunting and project posters",
       position: "50% 30%"
-    },
-    "Feature Addition in Make My Trip App": {
-      src: "./assets/previews/make-my-trip.jpg",
-      alt: "Book Your Trek in a Go title beside a phone showing a backpack icon",
-      position: "50% 50%"
     }
   };
 
@@ -212,13 +201,6 @@
       category: "uxui",
       categoryLabel: "UXUI",
       link: "https://gandhir7070.wixsite.com/portfolio/portfolio"
-    }),
-    external({
-      title: "Feature Addition in Make My Trip App",
-      year: "2019",
-      category: "uxui",
-      categoryLabel: "UXUI",
-      link: "https://www.behance.net/gallery/92959377/Feature-Addition-in-Make-My-Trip-App"
     })
   ];
 

@@ -39,8 +39,7 @@ This log is meant to be read at merge time: what changed, why, what was decided,
 Done items from the original list are in section 7. Still open:
 
 1. ~~AI demo section~~ - done, see section 7 (removed).
-2. Optional items (approved, not started): Work page hover previews, colour swatches as live controls.
-3. Other review items still open: 12px minimum font size, AI-stage header dots overlapping on mobile, "Between places" heading not matching its copy, crossfade/scroll-into-view for AI tabs (folds into item 1).
+2. All review items are now closed (see section 7). Nothing is pending except the open questions in section 5.
 ## 5. Open questions
 
 - Add the employer's name to the Synnova card? Needs the name from Richa.
@@ -76,6 +75,8 @@ Entries are added as each item lands.
 | Verified at 1440 and 390 | Hero, process row, ledger, contact and nav checked at both widths. No layout bugs found. | The Places photo strip is meant to scroll sideways on mobile. |
 | 12px minimum text | All 33 font sizes under 0.75rem were raised to at least 0.75rem (12px); the shared mono label style is now 0.78rem. Same fix in case-study.css. Verified in the browser: no text node under 12px; the mobile nav still fits. | |
 | Places section heading | The heading promised 'India to the UK to the US' but all three photos are London community workshops. Eyebrow is now 'In the field' and the heading 'Out of the studio and into the room with the people I design for.' The caption is unchanged. | Wording by the assistant; easy to change. |
+| Palette swatches are live | The three colour dots on each accordion panel are now buttons: click copies the hex to the clipboard and shows a short 'Copied #HEX' note (also announced to screen readers). Hit area padded to 44px, hover scale, keyboard focus ring. The clipboard code is now one shared helper used by both this and the Copy email button. | The palette colours are the site's own project accents, not official brand colours of those clients. Tested with a stubbed clipboard because the automated browser blocks the real one. |
+| Work page hover previews: skipped | Not built. Each Work row already shows its real image inline, so a hover preview would repeat what is on screen. | Revisit only if the rows go back to text-only. |
 | Side effects of the removal | The AI-stage mobile header dots overlap, the AI tab crossfade and the "demo stage fill" items from the review no longer apply. | They were part of the removed section. |
 
 ### Not mine: uncommitted edits from the user in the working tree

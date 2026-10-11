@@ -25,27 +25,13 @@
     });
   });
 
-  /* ---- Copy email ---- */
-  const copyBtn = document.querySelector(".copy-email");
-  const copyStatus = document.getElementById("copy-status");
-
-  if (copyBtn) {
-    const label = copyBtn.textContent;
-    let resetTimer = 0;
-
-    const announce = (ok) => {
-      copyBtn.textContent = ok ? "Copied" : "Copy failed";
-      copyBtn.classList.toggle("is-copied", ok);
-      if (copyStatus) copyStatus.textContent = ok ? "Email address copied to clipboard" : "Copy failed";
-      window.clearTimeout(resetTimer);
-      resetTimer = window.setTimeout(() => {
-        copyBtn.textContent = label;
-        copyBtn.classList.remove("is-copied");
-      }, 2000);
-    };
-
-    /* Older browsers and non-secure contexts: select a hidden field and use execCommand */
-    const legacyCopy = (text) => {
+  /* ---- Clipboard helper, shared by the email button and the palette swatches ---- */
+  async function copyText(text, returnFocusTo) {
+    try {
+      await navigator.clipboard.writeText(text);
+      return true;
+    } catch (err) {
+      /* Older browsers and non-secure contexts: select a hidden field and use execCommand */
       const field = document.createElement("textarea");
       field.value = text;
       field.setAttribute("readonly", "");
@@ -55,24 +41,51 @@
       let ok = false;
       try {
         ok = document.execCommand("copy");
-      } catch (err) {
+      } catch (e) {
         ok = false;
       }
       field.remove();
-      copyBtn.focus();
+      if (returnFocusTo) returnFocusTo.focus();
       return ok;
-    };
+    }
+  }
+
+  /* ---- Copy email ---- */
+  const copyBtn = document.querySelector(".copy-email");
+  const copyStatus = document.getElementById("copy-status");
+
+  if (copyBtn) {
+    const label = copyBtn.textContent;
+    let resetTimer = 0;
 
     copyBtn.addEventListener("click", async () => {
-      const text = copyBtn.dataset.copy;
-      try {
-        await navigator.clipboard.writeText(text);
-        announce(true);
-      } catch (err) {
-        announce(legacyCopy(text));
-      }
+      const ok = await copyText(copyBtn.dataset.copy, copyBtn);
+      copyBtn.textContent = ok ? "Copied" : "Copy failed";
+      copyBtn.classList.toggle("is-copied", ok);
+      if (copyStatus) copyStatus.textContent = ok ? "Email address copied to clipboard" : "Copy failed";
+      window.clearTimeout(resetTimer);
+      resetTimer = window.setTimeout(() => {
+        copyBtn.textContent = label;
+        copyBtn.classList.remove("is-copied");
+      }, 2000);
     });
   }
+
+  /* ---- Palette swatches: click to copy a colour ---- */
+  document.querySelectorAll(".acc-swatch").forEach((swatch) => {
+    const note = swatch.parentElement.querySelector(".acc-swatch-note");
+    let hideTimer = 0;
+
+    swatch.addEventListener("click", async () => {
+      const hex = swatch.dataset.hex;
+      const ok = await copyText(hex, swatch);
+      if (!note) return;
+      note.textContent = ok ? `Copied ${hex}` : "Copy failed";
+      note.classList.add("is-visible");
+      window.clearTimeout(hideTimer);
+      hideTimer = window.setTimeout(() => note.classList.remove("is-visible"), 1800);
+    });
+  });
 
   /* ---- Current role: compute the running duration instead of hard-coding it ---- */
   document.querySelectorAll(".ledger-duration[data-since]").forEach((el) => {

@@ -67,9 +67,9 @@
     "Food of Us":
       "A service design project using research, community engagement, and food stories to understand shared experiences and needs.",
     "User Research for a hackathon":
-      "A research-led project translating user insights into clearer problem framing, opportunity areas, and design direction.",
+      "A 10-day UX case study for a college club management app, from the UXUI Hackathon run by IIT Guwahati. I worked as UX researcher and UX designer in a team of three.",
     "Synnova Gears and Transmissions":
-      "Part of a team redesign of a tractor-gear manufacturer's website. As visual designer I shaped hierarchy, typography and spacing across desktop and mobile."
+      "A website redesign for a tractor-gear manufacturer, done with the team at Cognito, India. I designed the desktop and mobile interface in Figma."
   };
 
   /*
@@ -116,8 +116,13 @@
     },
     "Synnova Gears and Transmissions": {
       src: "./assets/Work/Portfolio_cover_image.webp",
-      alt: "Synnova website hero: a close-up of precision gears beside the headline Synergizing talents, innovating future",
-      position: "50% 0%"
+      alt: "Mockup of the redesigned Synnova website on a tilted screen, with the Synnova logo beside it",
+      position: "50% 50%"
+    },
+    "User Research for a hackathon": {
+      src: "./assets/previews/hackathon.jpg",
+      alt: "Case study cover for a college club management app, with tablet screens showing chat, a dashboard and a task calendar",
+      position: "50% 40%"
     },
     "Food of Us": {
       src: "./assets/photos/2.jpg",

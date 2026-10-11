@@ -23,7 +23,6 @@ window.Chroma = (function () {
     dailyhuntbrandidentity: "#f0aa9d",
     medcyclebranddevelopment: "#a6d2d6",
     branddevelopment: "#a6d2d6",
-    featureadditioninmakemytripapp: "#c2d5a8",
     userresearchforahackathon: "#cdd3e8",
     logofolio: "#f1b4c8",
     identitybranding: "#f3c6d5",
@@ -43,7 +42,6 @@ window.Chroma = (function () {
     visualdesignfortatacliq: { src: "./assets/marks/tata-cliq.svg", zoom: 1 },
     dailyhuntbrandidentity: { src: "./assets/marks/dailyhunt.png", zoom: 1 },
     medcyclebranddevelopment: { src: "./assets/marks/medcycle.png", zoom: 1 },
-    featureadditioninmakemytripapp: { src: "./assets/marks/mmt.png", zoom: 1 },
     userresearchforahackathon: { src: "./assets/marks/hackathon.png", zoom: 1 }
   };
 

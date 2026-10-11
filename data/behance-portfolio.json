@@ -1,4 +1,4 @@
-﻿{
+{
     "importedAt":  "2026-04-02T21:16:03",
     "source":  {
                    "behance":  "https://www.behance.net/gandhiricha",
@@ -445,41 +445,6 @@
                                                   "Tools highlighted on Behance: Adobe Illustrator, Adobe Photoshop, Adobe InDesign."
                                               ],
                          "caseStudyPath":  "./projects/publication-design.html"
-                     },
-                     {
-                         "id":  "92959377",
-                         "slug":  "feature-addition-in-make-my-trip-app",
-                         "title":  "Feature Addition in Make My Trip App.",
-                         "url":  "https://www.behance.net/gallery/92959377/Feature-Addition-in-Make-My-Trip-App",
-                         "shortUrl":  "http://be.net/gallery/92959377/Feature-Addition-in-Make-My-Trip-App",
-                         "description":  "A recruiter-ready adaptation of the original Behance project, preserving the key visuals and metadata in a cleaner review format.",
-                         "views":  "154",
-                         "appreciations":  "8",
-                         "publishedYear":  "2020",
-                         "primaryCategory":  "Feature Addition in Make My Trip App.",
-                         "displayCategory":  "UX / Product",
-                         "label":  "Product case study",
-                         "year":  "2020",
-                         "size":  "small",
-                         "accent":  "#b9d6aa",
-                         "coverLocalPath":  "./assets/behance/covers/feature-addition-in-make-my-trip-app.jpg",
-                         "images":  [
-                                        {
-                                            "caption":  "Image may contain: screenshot and abstract",
-                                            "localPath":  "./assets/behance/modules/feature-addition-in-make-my-trip-app/image-01.jpg"
-                                        },
-                                        {
-                                            "caption":  "Image may contain: screenshot and abstract",
-                                            "localPath":  "./assets/behance/modules/feature-addition-in-make-my-trip-app/image-02.jpg"
-                                        }
-                                    ],
-                         "recruiterSummary":  "A recruiter-friendly snapshot of visual communication design work, presented through 2 visuals and built using Adobe XD, Adobe Illustrator. The Behance project currently shows 154 views and 8 appreciations.",
-                         "recruiterBullets":  [
-                                                  "Published on Behance on February 28, 2020 and archived locally for a cleaner recruiter-facing review flow.",
-                                                  "Includes 2 imported visual modules so hiring teams can scan the project without leaving the site.",
-                                                  "Tools highlighted on Behance: Adobe XD, Adobe Illustrator."
-                                              ],
-                         "caseStudyPath":  "./projects/feature-addition-in-make-my-trip-app.html"
                      },
                      {
                          "id":  "93637347",

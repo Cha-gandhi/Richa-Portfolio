@@ -1,6 +1,6 @@
 /* ==========================================================================
    Work index — disciplines as chapters, projects as asymmetric rows.
-   Marks print on accent plates via multiply; covers stay photographic.
+   Each row shows real project imagery; rows without any are text-led.
    ========================================================================== */
 
 .work-hero {
@@ -87,6 +87,8 @@
   aspect-ratio: 3 / 2;
   isolation: isolate;
   contain: paint;
+  /* Shows the project's own colour while the image loads. */
+  background: color-mix(in oklab, var(--accent) 45%, var(--paper));
 }
 
 .row-body {
@@ -105,23 +107,12 @@
   grid-row: 1;
 }
 
-.row-media.is-mark {
-  background: var(--accent);
-  transition: background-color var(--dur-slow) var(--ease-out);
-}
-
-.row-media.is-mark img {
-  width: 72%;
-  height: 72%;
-  max-width: none;
-  object-fit: contain;
-  mix-blend-mode: multiply;
-}
-
-.row-media.is-cover img {
+.row-media img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: var(--pos, 50% 50%);
+  transition: transform var(--dur) var(--ease-out);
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -130,15 +121,14 @@
   }
 }
 
-.row-media.is-placeholder {
-  background: var(--accent);
-  padding: 1.4rem;
-  align-items: end;
-  justify-items: start;
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: clamp(1.3rem, 2vw, 1.9rem);
-  line-height: 0.95;
+/* Projects without real imagery in the repo: a text-led row, marked by its accent colour. */
+.row-text .row-body,
+.row-text:nth-child(even) .row-body {
+  grid-column: 1 / span 8;
+  grid-row: auto;
+  padding-left: 1.6rem;
+  border-left: 4px solid var(--accent);
+  transition: border-color var(--dur-slow) var(--ease-out);
 }
 
 .row-meta {
@@ -196,5 +186,10 @@
 
   .row-media {
     aspect-ratio: 4 / 3;
+  }
+
+  .row-text .row-body,
+  .row-text:nth-child(even) .row-body {
+    grid-column: 1;
   }
 }

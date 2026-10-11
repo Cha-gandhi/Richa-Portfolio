@@ -82,7 +82,7 @@ img {
   border-radius: 0;
   background: none;
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   text-decoration: none;
@@ -149,7 +149,7 @@ img {
   margin: 0 0 1rem;
   font-family: var(--font-mono);
   font-weight: 400;
-  font-size: 0.72rem;
+  font-size: 0.75rem;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--accent-ink);

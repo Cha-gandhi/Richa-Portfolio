@@ -38,7 +38,7 @@ This log is meant to be read at merge time: what changed, why, what was decided,
 
 Done items from the original list are in section 7. Still open:
 
-1. **AI demo section** ("How I orchestrate AI into systems, research & direction"): to be rethought. The user does not like it as it is and wants it to show a real, useful skill. Direction not yet chosen; options are being put to the user.
+1. ~~AI demo section~~ - done, see section 7 (removed).
 2. Optional items (approved, not started): Work page hover previews, colour swatches as live controls.
 3. Other review items still open: 12px minimum font size, AI-stage header dots overlapping on mobile, "Between places" heading not matching its copy, crossfade/scroll-into-view for AI tabs (folds into item 1).
 ## 5. Open questions
@@ -69,3 +69,10 @@ Entries are added as each item lands.
 | Live dot | The pulsing live dot stops under `prefers-reduced-motion`. | |
 | Copy email | New "Copy email" button in the contact section: Clipboard API, with a hidden-textarea fallback, a visible "Copied" state and a polite `aria-live` announcement. 44px tall. | The automated browser blocks the clipboard, so the success state was not observed in testing; the failure state was. |
 | Contact contrast | Contact heading is now full paper colour on ink (was 78%). Footer text raised from 46% to 64%. | |
+| AI demo section removed | The "How I orchestrate AI into systems, research & direction" block is deleted: its markup (four fake interactive demos plus a commented-out second direction), about 480 lines of CSS, about 350 lines of JS, and two responsive rule sets. Net effect: `index.html` about 1000 to 625 lines, `styles.css` about 2700 to 1816, `script.js` about 520 to 175. | Decision by the user: the demo did not prove a real skill, so it goes. The user also chose to keep AI as a headline theme, so AI stays in the experience heading ("civic systems & AI-native workflows"), the intro line, the section eyebrow, the consultant role and its tags. |
+| AI in "How I work" | Added a fifth method, "AI-assisted workflows: Synthesis, prototyping and accessibility checks, with a designer's judgment in the loop." | New wording written by the assistant to keep AI visible without a fake demo. Richa should confirm or edit it. |
+| Side effects of the removal | The AI-stage mobile header dots overlap, the AI tab crossfade and the "demo stage fill" items from the review no longer apply. | They were part of the removed section. |
+
+### Not mine: uncommitted edits from the user in the working tree
+
+While this round was in progress the working tree picked up edits that are not part of this log's commits: the Make My Trip project was removed (its `assets/behance/*`, `assets/marks/mmt.png`, `assets/previews/make-my-trip.jpg`, `projects/feature-addition-in-make-my-trip-app.html`, and its entries in `work.js`, `chroma.js`, `data/behance-portfolio.js` and `.json`), and `assets/Work/Portfolio_cover_image.webp` was added. These are left uncommitted on purpose. Commit them (or not) before merging.

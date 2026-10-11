@@ -75,7 +75,7 @@
     "User Research for a hackathon":
       "A research-led project translating user insights into clearer problem framing, opportunity areas, and design direction.",
     "Synnova Gears and Transmissions":
-      "A UXUI project for an industrial brand, focused on improving product communication, structure, and user understanding."
+      "A website redesign for a tractor-gear manufacturer: a cleaner, more scannable desktop and mobile interface that keeps the brand's industrial identity."
   };
 
   /*

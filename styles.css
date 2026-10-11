@@ -212,7 +212,8 @@ p {
 
 .site-nav.is-scrolled {
   /* Solid tint — avoid backdrop-filter blur during scroll */
-  background-color: color-mix(in oklab, var(--ground) 92%, transparent);
+  background-color: color-mix(in oklab, var(--ground) 96%, transparent);
+  box-shadow: 0 1px 0 color-mix(in oklab, var(--ink) 10%, transparent);
 }
 
 .wordmark {
@@ -2621,12 +2622,36 @@ p {
 }
 
 @media (max-width: 520px) {
+  .site-nav {
+    gap: 12px;
+  }
+
+  /* The badge wraps onto its own line here, so the separator would dangle */
+  .meta-sep {
+    display: none;
+  }
+
+  /* All three links must fit: drop the colour dot, tighten tracking, keep 44px tap height */
+  .chroma-dot {
+    display: none;
+  }
+
   .site-nav nav {
-    gap: 1rem;
+    gap: 0.9rem;
+  }
+
+  .site-nav nav a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 0;
+    font-size: 0.7rem;
+    letter-spacing: 0.04em;
+    background-position: 0 calc(50% + 12px);
   }
 
   .wordmark {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
   }
 
   .hero-actions {

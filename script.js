@@ -25,6 +25,69 @@
     });
   });
 
+  /* ---- Copy email ---- */
+  const copyBtn = document.querySelector(".copy-email");
+  const copyStatus = document.getElementById("copy-status");
+
+  if (copyBtn) {
+    const label = copyBtn.textContent;
+    let resetTimer = 0;
+
+    const announce = (ok) => {
+      copyBtn.textContent = ok ? "Copied" : "Copy failed";
+      copyBtn.classList.toggle("is-copied", ok);
+      if (copyStatus) copyStatus.textContent = ok ? "Email address copied to clipboard" : "Copy failed";
+      window.clearTimeout(resetTimer);
+      resetTimer = window.setTimeout(() => {
+        copyBtn.textContent = label;
+        copyBtn.classList.remove("is-copied");
+      }, 2000);
+    };
+
+    /* Older browsers and non-secure contexts: select a hidden field and use execCommand */
+    const legacyCopy = (text) => {
+      const field = document.createElement("textarea");
+      field.value = text;
+      field.setAttribute("readonly", "");
+      field.style.cssText = "position:fixed;top:0;left:0;opacity:0;pointer-events:none";
+      document.body.appendChild(field);
+      field.select();
+      let ok = false;
+      try {
+        ok = document.execCommand("copy");
+      } catch (err) {
+        ok = false;
+      }
+      field.remove();
+      copyBtn.focus();
+      return ok;
+    };
+
+    copyBtn.addEventListener("click", async () => {
+      const text = copyBtn.dataset.copy;
+      try {
+        await navigator.clipboard.writeText(text);
+        announce(true);
+      } catch (err) {
+        announce(legacyCopy(text));
+      }
+    });
+  }
+
+  /* ---- Current role: compute the running duration instead of hard-coding it ---- */
+  document.querySelectorAll(".ledger-duration[data-since]").forEach((el) => {
+    const [y, m] = el.dataset.since.split("-").map(Number);
+    const now = new Date();
+    const months = (now.getFullYear() - y) * 12 + (now.getMonth() + 1 - m) + 1;
+    if (!Number.isFinite(months) || months < 1) return;
+    const years = Math.floor(months / 12);
+    const rest = months % 12;
+    const parts = [];
+    if (years) parts.push(`${years} yr`);
+    if (rest) parts.push(`${rest} mos`);
+    el.textContent = `${parts.join(" ")} \u00b7 Active`;
+  });
+
   /* ---- Process: numerals roll up once, as the row scrolls into view ---- */
   const processSteps = document.getElementById("process-steps");
 

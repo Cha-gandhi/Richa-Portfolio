@@ -34,16 +34,13 @@ This log is meant to be read at merge time: what changed, why, what was decided,
 - The "How I orchestrate AI" demo section is being rethought (see section 4). It must show a real, useful skill rather than a gimmick.
 - Small polish items and the optional items are all approved.
 
-## 4. Pending (agreed with the user, in the order planned)
+## 4. Pending (agreed with the user)
 
-1. Hero portrait: replace the large right-side photo with a smaller circular portrait, placed professionally. Includes the portrait crop tweak.
-2. Process section: shorten and give the step numbers the accent colour.
-3. Experience ledger: de-duplicate (one stat, one role, shorter summary, 3-4 tags, computed or removed duration).
-4. AI demo section: rethink what it shows, then rebuild.
-5. Small polish: animated numeral roll, pause the live dot under reduced motion, copy-email button, better contrast on the contact heading.
-6. Optional items (approved): replace GSAP with CSS scroll-driven animation, Work page hover previews, colour swatches as live controls.
-7. Other review items still open: 12px minimum font size, AI-stage header dots overlapping on mobile, "Between places" heading not matching its copy.
+Done items from the original list are in section 7. Still open:
 
+1. **AI demo section** ("How I orchestrate AI into systems, research & direction"): to be rethought. The user does not like it as it is and wants it to show a real, useful skill. Direction not yet chosen; options are being put to the user.
+2. Optional items (approved, not started): Work page hover previews, colour swatches as live controls.
+3. Other review items still open: 12px minimum font size, AI-stage header dots overlapping on mobile, "Between places" heading not matching its copy, crossfade/scroll-into-view for AI tabs (folds into item 1).
 ## 5. Open questions
 
 - Add the employer's name to the Synnova card? Needs the name from Richa.
@@ -58,6 +55,17 @@ This log is meant to be read at merge time: what changed, why, what was decided,
 
 ## 7. Update log
 
-Entries below are added as each pending item lands.
+Entries are added as each item lands.
 
-- (none yet)
+### Round 2 (after the user's follow-up requests)
+
+| Item | What changed | Notes |
+| --- | --- | --- |
+| Hero portrait | The large right-hand photo is replaced by a small round portrait (`assets/photos/portrait-circle.jpg`, 480px, 34 KB) set beside the intro text under the name, ringed in the live page accent colour. Hero is now a single column; the name scales with the viewport. On phones the portrait stacks above the intro. | This is also the "portrait crop tweak": a dedicated square crop centred on the face. The original `homepage-portrait.jpeg` stays for social share images (`og:image`). |
+| GSAP removed | GSAP and ScrollTrigger CDN scripts, the preconnect, and the hero parallax code are gone. The hero now drifts up and softens as it scrolls away using CSS scroll-driven animation (`animation-timeline: view()`), only where supported and not under reduced motion. | One fewer third-party request. Completes the "replace GSAP with CSS scroll animation" item. |
+| Process section | From a tall sticky layout (about 4 x 62vh) to one compact row of four steps (two columns on tablet and mobile). Each step has an accent top rule, an accent-colour numeral, a shorter heading and a one-sentence description. The sticky index, its JS observer and unused CSS are removed. | Copy shortened. Step 3 renamed "Shape the system". |
+| Numeral roll | The step numerals roll up out of a clipped line when the row first scrolls into view, staggered by 90 ms. Hidden state is only applied once JS is ready, and it is skipped under reduced motion. | |
+| Experience ledger | Each role now has one title, one org, at most one stat, a one-sentence summary and exactly three tags. Removed the duplicated impact pill, the duplicate stat-as-tag, the vague "AI+ Next-Gen Strategy" stat on the consultant role, and the repeated "4+ years" header (now "Most recent first"). The current role's duration is computed in JS from `data-since="2026-01"` and counted inclusively like the others (shows "10 mos" today). | The remaining stats (12+ campaigns, 8 workshops, 200+ citizens) were already on the site; they should be confirmed as accurate by Richa. |
+| Live dot | The pulsing live dot stops under `prefers-reduced-motion`. | |
+| Copy email | New "Copy email" button in the contact section: Clipboard API, with a hidden-textarea fallback, a visible "Copied" state and a polite `aria-live` announcement. 44px tall. | The automated browser blocks the clipboard, so the success state was not observed in testing; the failure state was. |
+| Contact contrast | Contact heading is now full paper colour on ink (was 78%). Footer text raised from 46% to 64%. | |

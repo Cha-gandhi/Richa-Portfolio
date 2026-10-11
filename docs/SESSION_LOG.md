@@ -75,6 +75,7 @@ Entries are added as each item lands.
 | Make My Trip removed | Committed the user's removal: the project page, its Behance images, mark and preview, and its entries in work.js, chroma.js and the data files. No references remain in the site. | Done at the user's request. ssets/Work/Portfolio_cover_image.webp is still untracked and unused; left alone. |
 | Verified at 1440 and 390 | Hero, process row, ledger, contact and nav checked at both widths. No layout bugs found. | The Places photo strip is meant to scroll sideways on mobile. |
 | 12px minimum text | All 33 font sizes under 0.75rem were raised to at least 0.75rem (12px); the shared mono label style is now 0.78rem. Same fix in case-study.css. Verified in the browser: no text node under 12px; the mobile nav still fits. | |
+| Places section heading | The heading promised 'India to the UK to the US' but all three photos are London community workshops. Eyebrow is now 'In the field' and the heading 'Out of the studio and into the room with the people I design for.' The caption is unchanged. | Wording by the assistant; easy to change. |
 | Side effects of the removal | The AI-stage mobile header dots overlap, the AI tab crossfade and the "demo stage fill" items from the review no longer apply. | They were part of the removed section. |
 
 ### Not mine: uncommitted edits from the user in the working tree

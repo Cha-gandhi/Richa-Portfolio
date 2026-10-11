@@ -75,7 +75,7 @@
     "User Research for a hackathon":
       "A research-led project translating user insights into clearer problem framing, opportunity areas, and design direction.",
     "Synnova Gears and Transmissions":
-      "A website redesign for a tractor-gear manufacturer: a cleaner, more scannable desktop and mobile interface that keeps the brand's industrial identity."
+      "Part of a team redesign of a tractor-gear manufacturer's website. As visual designer I shaped hierarchy, typography and spacing across desktop and mobile."
   };
 
   /*
@@ -121,7 +121,7 @@
       position: "50% 50%"
     },
     "Synnova Gears and Transmissions": {
-      src: "./assets/previews/synnova.jpg",
+      src: "./assets/Work/Portfolio_cover_image.webp",
       alt: "Synnova website hero: a close-up of precision gears beside the headline Synergizing talents, innovating future",
       position: "50% 0%"
     },

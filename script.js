@@ -1,6 +1,6 @@
 /*
   Home page: featured five + process chapters + craft section.
-  Motion: hero parallax (GSAP), process sticky index, chromatic accent shift.
+  Motion: process sticky index, chromatic accent shift (hero scroll motion is pure CSS).
 */
 (function () {
   "use strict";
@@ -9,30 +9,9 @@
 
   const reduceMotion =
     window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const hasGsap = typeof window.gsap !== "undefined" && typeof window.ScrollTrigger !== "undefined";
 
   if (window.Chroma && typeof window.Chroma.watch === "function" && hero) {
     window.Chroma.watch([hero]);
-  }
-
-  if (hasGsap && !reduceMotion && hero) {
-    gsap.registerPlugin(ScrollTrigger);
-    gsap.config({ force3D: true, nullTargetWarn: false });
-
-    const portrait = document.querySelector(".hero-plane img");
-    if (portrait) {
-      gsap.to(portrait, {
-        yPercent: -10,
-        ease: "none",
-        force3D: true,
-        scrollTrigger: {
-          trigger: hero,
-          start: "top top",
-          end: "bottom top",
-          scrub: true
-        }
-      });
-    }
   }
 
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
@@ -46,39 +25,24 @@
     });
   });
 
-  /* ---- Process chapters ---- */
-  const steps = Array.from(document.querySelectorAll("#process-steps .step"));
-  const processNum = document.getElementById("process-num");
+  /* ---- Process: numerals roll up once, as the row scrolls into view ---- */
+  const processSteps = document.getElementById("process-steps");
 
-  if (steps.length && typeof IntersectionObserver !== "undefined") {
-    let activeIndex = steps[0].dataset.index;
+  if (processSteps && !reduceMotion && typeof IntersectionObserver !== "undefined") {
+    Array.from(processSteps.children).forEach((step, i) => step.style.setProperty("--i", i));
+    processSteps.classList.add("is-ready");
 
-    function setActive(step) {
-      steps.forEach((s) => s.classList.toggle("is-active", s === step));
-      const next = step.dataset.index;
-      if (!processNum || next === activeIndex) return;
-      activeIndex = next;
-      if (reduceMotion) {
-        processNum.textContent = next;
-        return;
-      }
-      processNum.classList.add("is-swapping");
-      window.setTimeout(() => {
-        processNum.textContent = next;
-        processNum.classList.remove("is-swapping");
-      }, 180);
-    }
-
-    const io = new IntersectionObserver(
-      (entries) => {
+    const processIo = new IntersectionObserver(
+      (entries, observer) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) setActive(entry.target);
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-in");
+          observer.unobserve(entry.target);
         });
       },
-      { rootMargin: "-42% 0px -42% 0px", threshold: 0 }
+      { rootMargin: "0px 0px -15% 0px", threshold: 0.2 }
     );
-
-    steps.forEach((step) => io.observe(step));
+    processIo.observe(processSteps);
   }
 
   /* --------------------------------------------------------------------------

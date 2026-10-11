@@ -27,8 +27,7 @@
     <meta name="twitter:image" content="https://cha-gandhi.github.io/Richa-Portfolio/assets/photos/homepage-portrait.jpeg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
-    <link rel="preload" as="image" href="./assets/photos/homepage-portrait.jpeg" fetchpriority="high" />
+    <link rel="preload" as="image" href="./assets/photos/portrait-circle.jpg" fetchpriority="high" />
     <link rel="preload" as="image" href="./assets/marks/synnova.svg" />
     <link
       href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&family=Space+Mono:wght@400;700&display=swap"
@@ -71,23 +70,27 @@
             <span class="hero-line"><span class="hero-word">Richa</span></span>
             <span class="hero-line"><span class="hero-word">Gandhi</span></span>
           </h1>
-          <p class="hero-lede">
-            Brand identities, campaigns and interfaces &mdash; built like systems, told like stories.
-          </p>
-          <div class="hero-actions">
-            <a class="btn" href="#work">See the work</a>
-            <a class="link-plain" href="mailto:richagandhi.work@gmail.com">richagandhi.work@gmail.com</a>
+          <div class="hero-intro">
+            <figure class="hero-portrait">
+              <img
+                src="./assets/photos/portrait-circle.jpg"
+                alt="Richa Gandhi smiling, with a sunset skyline behind her"
+                fetchpriority="high"
+                width="480"
+                height="480"
+              />
+            </figure>
+            <div class="hero-intro-text">
+              <p class="hero-lede">
+                Brand identities, campaigns and interfaces &mdash; built like systems, told like stories.
+              </p>
+              <div class="hero-actions">
+                <a class="btn" href="#work">See the work</a>
+                <a class="link-plain" href="mailto:richagandhi.work@gmail.com">richagandhi.work@gmail.com</a>
+              </div>
+            </div>
           </div>
         </div>
-        <figure class="hero-plane">
-          <img
-            src="./assets/photos/homepage-portrait.jpeg"
-            alt="Richa Gandhi smiling on a rooftop at sunset, soap bubbles drifting past"
-            fetchpriority="high"
-            width="1024"
-            height="702"
-          />
-        </figure>
       </section>
 
       <section class="film" id="work" aria-labelledby="work-title">
@@ -279,36 +282,26 @@
           <h2 id="process-title">Research-led thinking, expressive outcomes.</h2>
         </div>
         <div class="process-body">
-          <div class="process-index" aria-hidden="true">
-            <span class="process-num" id="process-num">01</span>
-            <span class="process-total mono">/ 04</span>
-          </div>
           <ol class="process-steps" id="process-steps">
-            <li class="step is-active" data-index="01">
-              <span class="step-num mono">01 / 04</span>
+            <li class="step">
+              <span class="step-num" aria-hidden="true"><span>01</span></span>
               <h3>Listen closely</h3>
-              <p>
-                I start by understanding the audience, context, and business intent before defining a direction. I use
-                the 5Ws and 1H to ask the right (and sometimes uncomfortable) questions.
-              </p>
+              <p>Audience, context and business intent first, using the 5Ws and 1H to ask the right questions.</p>
             </li>
-            <li class="step" data-index="02">
-              <span class="step-num mono">02 / 04</span>
+            <li class="step">
+              <span class="step-num" aria-hidden="true"><span>02</span></span>
               <h3>Define the problem</h3>
-              <p>A clear problem sets the direction. It keeps every design decision focused and purposeful.</p>
+              <p>A clear problem keeps every design decision focused and purposeful.</p>
             </li>
-            <li class="step" data-index="03">
-              <span class="step-num mono">03 / 04</span>
-              <h3>Sketch, ideate &amp; shape the system</h3>
-              <p>Ideas first, pixels later. I use typography, color, and hierarchy to build expressive, scalable systems.</p>
+            <li class="step">
+              <span class="step-num" aria-hidden="true"><span>03</span></span>
+              <h3>Shape the system</h3>
+              <p>Ideas first, pixels later. Type, colour and hierarchy built into scalable systems.</p>
             </li>
-            <li class="step" data-index="04">
-              <span class="step-num mono">04 / 04</span>
+            <li class="step">
+              <span class="step-num" aria-hidden="true"><span>04</span></span>
               <h3>Refine &amp; iterate</h3>
-              <p>
-                I polish, test, and tweak considering the client's feedback at all levels. So the final work feels
-                clear, strategic, and effortless.
-              </p>
+              <p>Polish, test and tweak with client feedback until the work feels clear and effortless.</p>
             </li>
           </ol>
         </div>
@@ -1002,8 +995,6 @@
       <span>Designed and built by Richa Gandhi</span>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js" defer></script>
     <script src="./chroma.js" defer></script>
     <script src="./script.js" defer></script>
   </body>

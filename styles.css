@@ -258,27 +258,27 @@ p {
 }
 
 /* --------------------------------------------------------------------------
-   Hero — brand at viewport scale, portrait as an edge-to-edge plane
+   Hero — the name at display scale, with a small round portrait beside the intro
    -------------------------------------------------------------------------- */
 
 .hero {
-  display: grid;
-  grid-template-columns: minmax(0, 60fr) minmax(0, 40fr);
-  min-height: 100svh;
+  display: flex;
+  min-height: min(100svh, 860px);
 }
 
 .hero-copy {
   display: flex;
+  flex: 1;
   flex-direction: column;
-  justify-content: flex-end;
-  gap: 1.6rem;
-  padding: calc(var(--nav-h) + 6vh) var(--gutter) 7vh;
+  justify-content: center;
+  gap: 1.8rem;
+  padding: calc(var(--nav-h) + 6vh) var(--gutter) 8vh;
 }
 
 .hero-title {
   font-weight: 800;
-  /* "Gandhi" in Syne 800 is ~5.6em wide; size it to the copy column so it never clips */
-  font-size: clamp(3.4rem, calc((60vw - 2 * var(--gutter)) / 5.65), 13rem);
+  /* "Gandhi" in Syne 800 is ~5.6em wide; size it to the viewport so it never clips */
+  font-size: clamp(3.4rem, calc((100vw - 2 * var(--gutter)) / 5.65), 12rem);
   line-height: 0.86;
   letter-spacing: -0.045em;
 }
@@ -298,6 +298,45 @@ p {
 
 .hero-line:nth-child(2) .hero-word {
   animation-delay: 110ms;
+}
+
+.hero-intro {
+  display: flex;
+  align-items: center;
+  gap: clamp(1.4rem, 3vw, 2.6rem);
+  margin-top: 0.6rem;
+}
+
+.hero-intro-text {
+  display: flex;
+  flex-direction: column;
+  gap: 1.3rem;
+  min-width: 0;
+}
+
+/* Round portrait, ringed in the page accent so it follows the colour system */
+.hero-portrait {
+  flex: 0 0 auto;
+  width: clamp(112px, 12vw, 176px);
+  aspect-ratio: 1;
+  /* room for the 6px ring so it stays inside the page gutter */
+  margin: 0 0 0 6px;
+  overflow: hidden;
+  border-radius: 50%;
+  background: var(--paper-deep);
+  box-shadow:
+    0 0 0 4px var(--paper),
+    0 0 0 6px var(--project-accent);
+  opacity: 0;
+  animation: fade-up var(--dur-slow) var(--ease-out) 240ms forwards;
+  transition: box-shadow var(--dur-slow) var(--ease-out);
+}
+
+.hero-portrait img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .hero-lede {
@@ -428,32 +467,29 @@ p {
   }
 }
 
-.hero-plane {
-  position: relative;
-  margin: 0;
-  overflow: hidden;
-  min-height: 100svh;
-  clip-path: inset(0 0 0 100%);
-  animation: unveil 720ms var(--ease-out) 80ms forwards;
-  /* Opaque plane so grain behind never softens the portrait */
-  background: var(--paper-deep);
-  isolation: isolate;
-  z-index: 2;
+/* As the hero scrolls away it drifts up and softens. Pure CSS, no library;
+   browsers without scroll-driven animations simply skip it. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .hero-copy {
+      animation: hero-exit linear both;
+      animation-timeline: view();
+      animation-range: exit 0% exit 70%;
+    }
+  }
+}
+
+@keyframes hero-exit {
+  to {
+    opacity: 0.25;
+    transform: translateY(-5vh);
+  }
 }
 
 .toolbox,
 .places {
   content-visibility: auto;
   contain-intrinsic-size: 1px 700px;
-}
-
-.hero-plane img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 116%;
-  object-fit: cover;
-  object-position: 56% 28%;
 }
 
 @keyframes rise {
@@ -470,12 +506,6 @@ p {
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@keyframes unveil {
-  to {
-    clip-path: inset(0);
   }
 }
 
@@ -860,80 +890,65 @@ p {
 }
 
 /* --------------------------------------------------------------------------
-   Process — sticky index, four chapters
+   Process — four steps in one row; each numeral rolls up as it scrolls into view
    -------------------------------------------------------------------------- */
 
 .process-body {
-  display: grid;
-  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
-  gap: 0 6vw;
-  padding: 0 var(--gutter);
-}
-
-.process-index {
-  position: sticky;
-  top: 18vh;
-  align-self: start;
-  display: flex;
-  align-items: baseline;
-  gap: 0.6rem;
-  height: 64vh;
-}
-
-.process-num {
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: clamp(6rem, 20vw, 20rem);
-  line-height: 0.8;
-  letter-spacing: -0.06em;
-  color: var(--accent-ink);
-  transition: color var(--dur-slow) var(--ease-out), opacity 260ms var(--ease-out), transform 260ms var(--ease-out);
-}
-
-.process-num.is-swapping {
-  opacity: 0;
-  transform: translateY(0.06em);
-}
-
-.process-total {
-  color: var(--ink-soft);
+  padding: 0 var(--gutter) 6vh;
 }
 
 .process-steps {
-  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0 clamp(1.2rem, 2.4vw, 2.4rem);
   margin: 0;
   padding: 0;
+  list-style: none;
 }
 
 .step {
   display: grid;
-  align-content: center;
-  gap: 1rem;
-  min-height: 62vh;
-  padding: 4vh 0;
-  opacity: 0.26;
-  transition: opacity var(--dur) var(--ease-out);
+  align-content: start;
+  gap: 0.8rem;
+  padding-top: 1.4rem;
+  border-top: 2px solid var(--project-accent);
 }
 
-.step.is-active {
-  opacity: 1;
-}
-
+/* The numeral sits in a clipped line so it can roll up into place */
 .step-num {
-  display: none;
+  display: block;
+  overflow: hidden;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2.6rem, 4.6vw, 4.4rem);
+  line-height: 1;
+  letter-spacing: -0.04em;
   color: var(--accent-ink);
 }
 
+.step-num > span {
+  display: inline-block;
+  transition: transform 640ms var(--ease-out) calc(var(--i, 0) * 90ms);
+}
+
+/* Only hide the numerals once JS is ready to reveal them */
+.process-steps.is-ready .step-num > span {
+  transform: translateY(105%);
+}
+
+.process-steps.is-ready.is-in .step-num > span {
+  transform: translateY(0);
+}
+
 .step h3 {
-  font-size: clamp(1.8rem, 3.4vw, 3.4rem);
-  letter-spacing: -0.03em;
-  max-width: 14ch;
+  font-size: clamp(1.15rem, 1.7vw, 1.6rem);
+  letter-spacing: -0.02em;
 }
 
 .step p {
-  max-width: 46ch;
-  font-size: clamp(1rem, 1.2vw, 1.15rem);
-  line-height: 1.6;
+  max-width: 34ch;
+  font-size: 0.98rem;
+  line-height: 1.55;
   color: var(--ink-soft);
 }
 
@@ -2456,24 +2471,11 @@ p {
   }
 
   .hero {
-    grid-template-columns: 1fr;
     min-height: 0;
-  }
-
-  .hero-plane {
-    order: -1;
-    min-height: 0;
-    height: 58svh;
-    clip-path: inset(0 0 100% 0);
-  }
-
-  .hero-plane img {
-    height: 100%;
-    object-position: 52% 30%;
   }
 
   .hero-copy {
-    padding: 8vh var(--gutter) 10vh;
+    padding: calc(var(--nav-h) + 5vh) var(--gutter) 8vh;
     gap: 1.3rem;
   }
 
@@ -2521,23 +2523,9 @@ p {
     grid-template-columns: 1fr;
   }
 
-  .process-body {
-    grid-template-columns: 1fr;
-  }
-
-  .process-index {
-    display: none;
-  }
-
-  .step {
-    min-height: 0;
-    padding: 5vh 0;
-    opacity: 1;
-    border-top: 1px solid color-mix(in oklab, var(--ink) 14%, transparent);
-  }
-
-  .step-num {
-    display: block;
+  .process-steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 2.4rem 1.6rem;
   }
 
   .places-band {
@@ -2627,6 +2615,11 @@ p {
     font-size: 0.9rem;
   }
 
+  .hero-intro {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
   .hero-actions {
     align-items: flex-start;
     flex-direction: column;
@@ -2641,7 +2634,6 @@ p {
   html,
   .chroma-dot,
   .chroma-wash,
-  .process-num,
   .contact-email,
   .eyebrow {
     transition: none;
@@ -2651,18 +2643,17 @@ p {
   .hero .eyebrow,
   .hero-lede,
   .hero-actions,
-  .hero-plane {
+  .hero-portrait {
     animation: none;
     opacity: 1;
     transform: none;
-    clip-path: none;
   }
 
-  .hero-plane img {
-    height: 100%;
+  .process-steps.is-ready .step-num > span {
+    transform: none;
   }
 
-  .step {
-    opacity: 1;
+  .step-num > span {
+    transition: none;
   }
 }

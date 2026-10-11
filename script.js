@@ -11,8 +11,8 @@
     window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const hasGsap = typeof window.gsap !== "undefined" && typeof window.ScrollTrigger !== "undefined";
 
-  if (window.Chroma) {
-    if (hero) window.Chroma.watch([hero]);
+  if (window.Chroma && typeof window.Chroma.watch === "function" && hero) {
+    window.Chroma.watch([hero]);
   }
 
   if (hasGsap && !reduceMotion && hero) {
@@ -104,7 +104,9 @@
         if (btn) btn.setAttribute("aria-expanded", String(on));
       });
       const accent = panel.dataset.accent;
-      if (accent && window.Chroma) window.Chroma.setAccent(accent);
+      if (accent && window.Chroma && typeof window.Chroma.setAccent === "function") {
+        window.Chroma.setAccent(accent);
+      }
     };
 
     accPanels.forEach((panel) => {

@@ -5,77 +5,6 @@
 (function () {
   "use strict";
 
-  /* Five compact plates — one viewport row on desktop; full archive on work.html. */
-  const featuredRail = [
-    {
-      title: "Synnova Gears and Transmissions",
-      short: "Synnova",
-      category: "UXUI",
-      year: "2025",
-      link: "https://www.notion.so/SYNNOVA-GEARS-TRANSMISSION-UXUI-Design-33d5cfa216a9818e9db2f4921ff4b6c8?source=copy_link"
-    },
-    {
-      title: "Food of Us",
-      short: "Food of Us",
-      category: "Service",
-      year: "2024",
-      link: "https://www.notion.so/FOOD-OF-US-33d5cfa216a98108b39bd153c5d3afc7?source=copy_link"
-    },
-    {
-      title: "Stories of Cooking",
-      short: "Stories of Cooking",
-      category: "Branding",
-      year: "2023",
-      link: "https://www.behance.net/gallery/182067115/Stories-of-Cooking"
-    },
-    {
-      title: "Logo Design for Kingsgate Student Pantry",
-      short: "KingsGate Pantry",
-      category: "Logo",
-      year: "2025",
-      link: "https://www.behance.net/gallery/223547467/Logo-Design-for-Kingsgate-Student-Pantry"
-    },
-    {
-      title: "Visual Design for Tata Cliq",
-      short: "Tata CLiQ",
-      category: "Visual",
-      year: "2024",
-      link: "https://www.behance.net/gallery/209064377/Visual-Design-for-Tata-Cliq"
-    }
-  ];
-
-  const track = document.getElementById("film-track");
-
-  function frameMarkup(project, index) {
-    const chroma = window.Chroma;
-    const accent = (chroma && chroma.accentFor(project.title)) || "#efc697";
-    const mark = (chroma && chroma.markFor(project.title)) || { src: "", zoom: 1 };
-    const number = String(index + 1).padStart(2, "0");
-    const label = project.short || project.title;
-    return `
-      <article class="frame" data-accent="${accent}" style="--accent:${accent}; --i:${index}">
-        <a class="frame-link" href="${project.link}" target="_blank" rel="noreferrer">
-          <div class="frame-plate" aria-hidden="true">
-            <span class="frame-index mono">${number}</span>
-            <span class="frame-slash"></span>
-            <span class="frame-stamp">
-              <img src="${mark.src}" alt="" width="720" height="720" loading="${index < 2 ? "eager" : "lazy"}" decoding="async" />
-            </span>
-          </div>
-          <div class="frame-meta">
-            <p class="frame-sub mono"><span>${project.category}</span><span>${project.year}</span></p>
-            <h3 class="frame-title">${label}</h3>
-          </div>
-        </a>
-      </article>
-    `;
-  }
-
-  if (track) {
-    track.innerHTML = featuredRail.map(frameMarkup).join("");
-  }
-
-  const frames = track ? Array.from(track.querySelectorAll(".frame")) : [];
   const hero = document.querySelector(".hero");
 
   const reduceMotion =
@@ -84,9 +13,6 @@
 
   if (window.Chroma) {
     if (hero) window.Chroma.watch([hero]);
-    if (frames.length) {
-      window.Chroma.watch(frames, { rootMargin: "-30% 0px -30% 0px", threshold: 0.35 });
-    }
   }
 
   if (hasGsap && !reduceMotion && hero) {
@@ -156,23 +82,65 @@
   }
 
   /* --------------------------------------------------------------------------
-     The Kinetic Spatial Accordion (Selected Work)
+     Selected work accordion
+     - the spine buttons are the controls (click, Enter and Space all work)
+     - on a fine pointer, hovering only opens a panel after a short pause, so
+       moving the cursor across the row does not make the layout flicker
+     - the open project's colour is handed to the page through Chroma
      -------------------------------------------------------------------------- */
   const accPanels = Array.from(document.querySelectorAll(".acc-panel"));
-  const chromaWash = document.getElementById("chroma-wash");
 
   if (accPanels.length) {
-    accPanels.forEach((panel) => {
-      const activate = () => {
-        accPanels.forEach((p) => p.classList.toggle("is-expanded", p === panel));
-        const accent = panel.dataset.accent;
-        if (accent && chromaWash) {
-          chromaWash.style.background = `radial-gradient(circle at 50% 50%, color-mix(in oklab, ${accent} 70%, transparent) 0%, transparent 68%)`;
-        }
-      };
+    const finePointer =
+      window.matchMedia && window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+    const wide = () => window.matchMedia("(min-width: 1101px)").matches;
+    let intentTimer = 0;
 
-      panel.addEventListener("click", activate);
-      panel.addEventListener("mouseenter", activate);
+    const open = (panel) => {
+      accPanels.forEach((p) => {
+        const on = p === panel;
+        p.classList.toggle("is-expanded", on);
+        const btn = p.querySelector(".acc-spine");
+        if (btn) btn.setAttribute("aria-expanded", String(on));
+      });
+      const accent = panel.dataset.accent;
+      if (accent && window.Chroma) window.Chroma.setAccent(accent);
+    };
+
+    accPanels.forEach((panel) => {
+      const spine = panel.querySelector(".acc-spine");
+      if (!spine) return;
+
+      spine.addEventListener("click", () => {
+        window.clearTimeout(intentTimer);
+        open(panel);
+      });
+
+      if (finePointer) {
+        panel.addEventListener("mouseenter", () => {
+          if (!wide() || panel.classList.contains("is-expanded")) return;
+          window.clearTimeout(intentTimer);
+          intentTimer = window.setTimeout(() => open(panel), 140);
+        });
+        panel.addEventListener("mouseleave", () => window.clearTimeout(intentTimer));
+      }
+    });
+
+    /* Arrow keys move between spines, like a tab list */
+    accPanels.forEach((panel, i) => {
+      const spine = panel.querySelector(".acc-spine");
+      if (!spine) return;
+      spine.addEventListener("keydown", (event) => {
+        const keys = ["ArrowDown", "ArrowRight", "ArrowUp", "ArrowLeft", "Home", "End"];
+        if (!keys.includes(event.key)) return;
+        event.preventDefault();
+        let next = i;
+        if (event.key === "ArrowDown" || event.key === "ArrowRight") next = (i + 1) % accPanels.length;
+        if (event.key === "ArrowUp" || event.key === "ArrowLeft") next = (i - 1 + accPanels.length) % accPanels.length;
+        if (event.key === "Home") next = 0;
+        if (event.key === "End") next = accPanels.length - 1;
+        accPanels[next].querySelector(".acc-spine").focus();
+      });
     });
   }
 

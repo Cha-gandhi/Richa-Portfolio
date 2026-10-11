@@ -525,65 +525,100 @@ p {
 }
 
 /* --------------------------------------------------------------------------
-   Selected work — The Kinetic Spatial Accordion
+   Selected work — accordion
+   One project open at a time. Desktop: panels share a row and the open one
+   widens. Tablet and mobile: panels stack and the open one unfolds in place.
    -------------------------------------------------------------------------- */
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
 
 .accordion-stage {
   display: flex;
   gap: 0.8rem;
-  height: 520px;
+  /* Height comes from the open project; the floor keeps short panels from jumping. */
+  min-height: 600px;
   padding: 0 var(--gutter) 4vh;
-  width: 100%;
-  box-sizing: border-box;
 }
 
 .acc-panel {
-  flex: 1;
   position: relative;
+  display: flex;
+  flex: 1 1 0;
+  min-width: 0;
+  overflow: hidden;
   border: 1px solid color-mix(in oklab, var(--ink) 14%, transparent);
   border-radius: 8px;
   background: color-mix(in oklab, var(--paper) 40%, transparent);
-  overflow: hidden;
-  cursor: pointer;
-  transition: flex var(--dur) var(--ease-out), background var(--dur) var(--ease-out), border-color var(--dur-fast) var(--ease-out);
-  display: flex;
+  transition:
+    flex-grow var(--dur) var(--ease-out),
+    background-color var(--dur) var(--ease-out),
+    border-color var(--dur-fast) var(--ease-out),
+    box-shadow var(--dur) var(--ease-out);
 }
 
 .acc-panel:hover {
-  border-color: var(--ink);
+  border-color: color-mix(in oklab, var(--ink) 50%, transparent);
 }
 
 .acc-panel.is-expanded {
-  flex: 4;
+  flex-grow: 5;
   background: var(--paper);
-  box-shadow: 0 16px 36px -12px color-mix(in oklab, var(--ink) 12%, transparent);
+  box-shadow: 0 16px 36px -12px color-mix(in oklab, var(--ink) 14%, transparent);
 }
 
-/* Vertical Spine (when collapsed) */
-.acc-spine {
-  width: 60px;
-  height: 100%;
+/* Spine: the always-visible button that opens a panel */
+.acc-h {
   display: flex;
+  flex: 0 0 64px;
+  margin: 0;
+  font: inherit;
+  letter-spacing: normal;
+  line-height: inherit;
+}
+
+.acc-spine {
+  display: flex;
+  flex: 1;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
   padding: 1.4rem 0;
+  border: 0;
   border-right: 1px solid transparent;
-  flex-shrink: 0;
+  background: none;
+  color: inherit;
+  cursor: pointer;
+  transition: border-color var(--dur) var(--ease-out);
+}
+
+.acc-spine:focus-visible {
+  outline-offset: -4px;
+}
+
+.acc-panel.is-expanded .acc-spine {
+  border-right-color: color-mix(in oklab, var(--ink) 10%, transparent);
 }
 
 .acc-spine-num {
   font-weight: 700;
-  font-size: 0.85rem;
   color: var(--accent-ink);
 }
 
 .acc-spine-label {
   writing-mode: vertical-rl;
   transform: rotate(180deg);
-  font-size: 0.72rem;
-  letter-spacing: 0.12em;
-  color: var(--ink);
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
   white-space: nowrap;
 }
 
@@ -591,98 +626,173 @@ p {
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  border: 1px solid color-mix(in oklab, var(--ink) 15%, transparent);
+  background: var(--p-accent);
+  border: 1px solid color-mix(in oklab, var(--ink) 18%, transparent);
 }
 
-/* Expanded Content Pane */
-.acc-expanded-content {
-  display: none;
-  padding: 2rem 2.4rem 2rem 1.6rem;
+/* Body: fades in after the panel has opened, so nothing reflows mid-transition */
+.acc-body {
+  flex: 1 1 auto;
+  min-width: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 140ms linear, visibility 0s linear 140ms;
+}
+
+.acc-panel.is-expanded .acc-body {
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 280ms var(--ease-out) 200ms, visibility 0s;
+}
+
+.acc-clip {
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+.acc-inner {
+  display: flex;
   flex-direction: column;
-  gap: 1.2rem;
-  flex-grow: 1;
-  overflow-y: auto;
+  gap: 1.1rem;
+  /* Fixed minimum so content never re-wraps while the panel is widening */
+  min-width: 440px;
+  height: 100%;
+  padding: 1.4rem 1.6rem 1.6rem 1.2rem;
 }
 
-.acc-panel.is-expanded .acc-expanded-content {
+.acc-media {
+  position: relative;
+  flex: 0 0 auto;
+  height: clamp(190px, 17vw, 250px);
+  margin: 0;
+  overflow: hidden;
+  border-radius: 6px;
+  /* The project's own colour shows while the image loads */
+  background: color-mix(in oklab, var(--p-accent) 40%, var(--paper));
+}
+
+.acc-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: var(--pos, 50% 50%);
+}
+
+.acc-panel.is-expanded .acc-media img {
+  animation: acc-settle 700ms var(--ease-out) 120ms both;
+}
+
+@keyframes acc-settle {
+  from {
+    transform: scale(1.06);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+.acc-inner-text {
+  justify-content: center;
+  border-left: 4px solid var(--p-accent);
+  margin-left: 1.2rem;
+  padding-left: 1.6rem;
+  min-width: 400px;
+}
+
+.acc-inner-text {
+  gap: 1.4rem;
+}
+
+.acc-inner-text .acc-btn {
+  margin-top: 0.4rem;
+}
+
+.acc-inner-text .acc-title {
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+  max-width: 14ch;
+}
+
+.acc-head {
   display: flex;
-}
-
-.acc-panel.is-expanded .acc-spine {
-  border-right-color: color-mix(in oklab, var(--ink) 10%, transparent);
-}
-
-.acc-head-row {
-  display: flex;
-  justify-content: space-between;
   align-items: flex-start;
+  justify-content: space-between;
   gap: 1.5rem;
 }
 
+.acc-meta {
+  color: var(--p-deep);
+  font-weight: 700;
+}
+
 .acc-title {
-  margin: 0.2rem 0 0;
+  margin: 0.3rem 0 0;
   font-family: var(--font-display);
   font-weight: 700;
-  font-size: clamp(1.4rem, 2vw, 1.8rem);
+  font-size: clamp(1.4rem, 2vw, 1.9rem);
+  line-height: 1.05;
   letter-spacing: -0.02em;
   color: var(--ink);
 }
 
-.acc-swatch-cluster {
+.acc-swatches {
   display: flex;
+  flex: 0 0 auto;
   gap: 0.4rem;
-  align-items: center;
 }
 
-.acc-swatch-circle {
+.acc-swatches span {
   width: 20px;
   height: 20px;
   border-radius: 50%;
-  border: 1px solid color-mix(in oklab, var(--ink) 15%, transparent);
-}
-
-.acc-mark-preview {
-  height: 110px;
-  border-radius: 6px;
-  display: grid;
-  place-items: center;
-  border: 1px solid color-mix(in oklab, var(--ink) 8%, transparent);
+  border: 1px solid color-mix(in oklab, var(--ink) 18%, transparent);
 }
 
 .acc-desc {
   margin: 0;
+  max-width: 62ch;
   font-size: 0.95rem;
   line-height: 1.6;
   color: var(--ink-soft);
 }
 
-.acc-deliverables {
+.acc-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 0.4rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
 }
 
-.acc-tag {
-  font-size: 0.65rem;
-  padding: 0.25rem 0.6rem;
-  background: color-mix(in oklab, var(--ink) 5%, transparent);
-  border: 1px solid color-mix(in oklab, var(--ink) 10%, transparent);
+.acc-tags li {
+  padding: 0.3rem 0.65rem;
+  border: 1px solid color-mix(in oklab, var(--ink) 12%, transparent);
   border-radius: 3px;
-  color: var(--ink);
+  background: color-mix(in oklab, var(--ink) 5%, transparent);
+  font-size: 0.75rem;
 }
 
 .acc-btn {
   display: inline-flex;
   align-items: center;
-  padding: 0.65rem 1.4rem;
+  gap: 0.6em;
+  width: fit-content;
+  min-height: 44px;
+  margin-top: auto;
+  padding: 0 1.4rem;
+  border-radius: 999px;
   background: var(--ink);
   color: var(--paper);
-  border-radius: 999px;
-  font-size: 0.72rem;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  width: fit-content;
-  margin-top: auto;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: transform var(--dur-fast) var(--ease-out);
+}
+
+.acc-btn::after {
+  content: "\2192";
+  font-family: var(--font-mono);
   transition: transform var(--dur-fast) var(--ease-out);
 }
 
@@ -690,27 +800,88 @@ p {
   transform: translateY(-2px);
 }
 
-@media (max-width: 999px) {
+.acc-btn:hover::after {
+  transform: translateX(4px);
+}
+
+/* Tablet and mobile: stack the panels; the open one unfolds in place */
+@media (max-width: 1100px) {
   .accordion-stage {
     flex-direction: column;
-    height: auto;
+    gap: 0.6rem;
+    min-height: 0;
   }
 
   .acc-panel {
+    flex: none;
+    flex-direction: column;
+    transition:
+      background-color var(--dur) var(--ease-out),
+      border-color var(--dur-fast) var(--ease-out),
+      box-shadow var(--dur) var(--ease-out);
+  }
+
+  .acc-h {
+    flex: 0 0 auto;
     width: 100%;
-    min-height: 70px;
   }
 
   .acc-spine {
-    width: 100%;
-    height: 60px;
     flex-direction: row;
-    padding: 0 1.4rem;
+    justify-content: flex-start;
+    gap: 1rem;
+    min-height: 60px;
+    padding: 0 1.2rem;
+    border-right: 0;
   }
 
   .acc-spine-label {
+    flex: 1;
     writing-mode: horizontal-tb;
     transform: none;
+    text-align: left;
+  }
+
+  .acc-body {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition:
+      grid-template-rows var(--dur) var(--ease-out),
+      opacity 140ms linear,
+      visibility 0s linear var(--dur);
+  }
+
+  .acc-panel.is-expanded .acc-body {
+    grid-template-rows: 1fr;
+    transition:
+      grid-template-rows var(--dur) var(--ease-out),
+      opacity 280ms var(--ease-out) 120ms,
+      visibility 0s;
+  }
+
+  .acc-clip {
+    height: auto;
+  }
+
+  .acc-inner {
+    min-width: 0;
+    height: auto;
+    padding: 0.4rem 1.2rem 1.4rem;
+  }
+
+  .acc-inner-text {
+    margin-left: 1.2rem;
+    padding: 0.2rem 0 0.2rem 1.2rem;
+    min-width: 0;
+  }
+
+  .acc-media {
+    height: auto;
+    aspect-ratio: 16 / 10;
+  }
+
+  .acc-head {
+    flex-wrap: wrap;
   }
 }
 
@@ -2283,14 +2454,6 @@ p {
    -------------------------------------------------------------------------- */
 
 @media (max-width: 1100px) {
-  .film-track {
-    gap: 10px;
-  }
-
-  .frame-title {
-    font-size: 0.95rem;
-  }
-
   .ai-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -2347,29 +2510,6 @@ p {
   .section-head {
     grid-template-columns: 1fr;
     padding: 12vh var(--gutter) 5vh;
-  }
-
-  .film-track {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 1.4rem 1rem;
-  }
-
-  .frame:nth-child(even),
-  .frame:nth-child(3) {
-    margin-top: 0;
-  }
-
-  .frame:nth-child(n + 4) {
-    margin-top: 0.5rem;
-  }
-
-  .frame-plate {
-    transform: none;
-  }
-
-  .frame-title {
-    max-width: none;
-    font-size: 1rem;
   }
 
   .craft-board {
@@ -2493,15 +2633,6 @@ p {
     align-items: flex-start;
     flex-direction: column;
   }
-
-  .film-track {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .frame:nth-child(5) {
-    grid-column: 1 / -1;
-    max-width: 220px;
-  }
 }
 
 /* --------------------------------------------------------------------------
@@ -2512,25 +2643,10 @@ p {
   html,
   .chroma-dot,
   .chroma-wash,
-  .frame-plate,
   .process-num,
   .contact-email,
   .eyebrow {
     transition: none;
-  }
-
-  .frame,
-  .frame:nth-child(even),
-  .frame:nth-child(3) {
-    margin-top: 0;
-  }
-
-  .frame-plate {
-    transform: none;
-  }
-
-  .frame-stamp {
-    transform: none;
   }
 
   .hero-word,

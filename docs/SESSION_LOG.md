@@ -42,13 +42,14 @@ Done items from the original list are in section 7. Still open:
 2. All review items are now closed (see section 7). Nothing is pending except the open questions in section 5.
 ## 5. Open questions
 
-- Medcycle and Make My Trip previews are crops of very tall Behance long-page images. Specific frames could replace them.
+- The Medcycle preview is a crop of a very tall Behance long-page image. A specific frame could replace it.
+- `assets/previews/synnova.jpg` is unused since the cover swap and can be deleted.
 
 ## 6. Housekeeping notes
 
 - `.agents/` and `skills-lock.json` are untracked tooling files and are intentionally not committed.
 - Temporary review helpers (`_review.html`, `_acc.html`, `_acc.css`, splice scripts) were deleted.
-- Nothing has been pushed or merged yet.
+- Branch `ui-review-fixes` is pushed to `origin`; not merged to `main` yet.
 
 ## 7. Update log
 
@@ -69,7 +70,7 @@ Entries are added as each item lands.
 | AI demo section removed | The "How I orchestrate AI into systems, research & direction" block is deleted: its markup (four fake interactive demos plus a commented-out second direction), about 480 lines of CSS, about 350 lines of JS, and two responsive rule sets. Net effect: `index.html` about 1000 to 625 lines, `styles.css` about 2700 to 1816, `script.js` about 520 to 175. | Decision by the user: the demo did not prove a real skill, so it goes. The user also chose to keep AI as a headline theme, so AI stays in the experience heading ("civic systems & AI-native workflows"), the intro line, the section eyebrow, the consultant role and its tags. |
 | AI in "How I work" | Added a fifth method, "AI-assisted workflows: Synthesis, prototyping and accessibility checks, with a designer's judgment in the loop." | New wording written by the assistant to keep AI visible without a fake demo. Richa should confirm or edit it. |
 | Current role wording | "Design Consultant, advising emerging ventures..." implied a consultancy and clients that do not exist. Now: **Freelance Designer, Independent · Open to full-time roles**, with a first-person summary saying Richa is looking for her next full-time design role and takes freelance brand, campaign and interface projects in the meantime. Tags: Brand & Identity, Interface Design, Figma + AI. The availability chip now reads "Open to full-time roles & freelance projects · USA" (was "Available for Strategic Design & Consultations"). | Written from the user's own description of her situation. No client names, results or claims were invented. Note: the AI-as-headline-theme entry above refers to this role's tag "Figma + AI" and the section heading. |
-| Make My Trip removed | Committed the user's removal: the project page, its Behance images, mark and preview, and its entries in work.js, chroma.js and the data files. No references remain in the site. | Done at the user's request. ssets/Work/Portfolio_cover_image.webp is still untracked and unused; left alone. |
+| Make My Trip removed | Committed the user's removal: the project page, its Behance images, mark and preview, and its entries in work.js, chroma.js and the data files. No references remain in the site. | Done at the user's request. The cover image `Portfolio_cover_image.webp` is now used for Synnova (see Round 3). |
 | Verified at 1440 and 390 | Hero, process row, ledger, contact and nav checked at both widths. No layout bugs found. | The Places photo strip is meant to scroll sideways on mobile. |
 | 12px minimum text | All 33 font sizes under 0.75rem were raised to at least 0.75rem (12px); the shared mono label style is now 0.78rem. Same fix in case-study.css. Verified in the browser: no text node under 12px; the mobile nav still fits. | |
 | Places section heading | The heading promised 'India to the UK to the US' but all three photos are London community workshops. Eyebrow is now 'In the field' and the heading 'Out of the studio and into the room with the people I design for.' The caption is unchanged. | Wording by the assistant; easy to change. |
@@ -84,9 +85,9 @@ Entries are added as each item lands.
 | Hero balance | The right side felt empty, so the round portrait moved to the right of the name, larger (180-340px, 22vw) and vertically centred on the text block. The name now sizes itself to the space left beside the portrait. Below 900px it becomes a single column with a 128px avatar above the name. Portrait re-cut at 720px for sharp high-density screens. | Still a circle with the accent ring, as requested earlier. |
 | Mobile nav | The 12px text rule had pushed 'Contact' to the edge. Wordmark and link spacing tightened; verified it fits with margin. | |
 | Synnova credit | Card now says the work was done with the team at **Cognito, India**, designed in **Figma**. Tags: Visual designer / Cognito, India / Figma (was Figma + Photoshop). Work page description updated to match. | Facts from the user: employer Cognito India, redesign done fully in Figma. |
-| Synnova image | The user replaced the live-site capture with her own cover mockup (ssets/Work/Portfolio_cover_image.webp, 1920x1080). That file was untracked while the code already referenced it; it is now committed. ssets/previews/synnova.jpg is no longer used. Alt text rewritten to describe the mockup. | Viewers see the full case study through the project link. The unused synnova.jpg can be deleted. |
-| Hackathon project | 'User Research for a hackathon' is the college club management app case study on the user's Wix portfolio. Added its real cover (ssets/previews/hackathon.jpg, cropped from her own page) and a factual description: 10-day UX case study, UXUI Hackathon run by IIT Guwahati, role UX researcher and UX designer, team of three. | Details taken from her own case study page. No award was claimed even though the cover shows a ribbon icon. |
+| Synnova image | The user replaced the live-site capture with her own cover mockup (assets/Work/Portfolio_cover_image.webp, 1920x1080). That file was untracked while the code already referenced it; it is now committed. assets/previews/synnova.jpg is no longer used. Alt text rewritten to describe the mockup. | Viewers see the full case study through the project link. The unused synnova.jpg can be deleted. |
+| Hackathon project | 'User Research for a hackathon' is the college club management app case study on the user's Wix portfolio. Added its real cover (assets/previews/hackathon.jpg, cropped from her own page) and a factual description: 10-day UX case study, UXUI Hackathon run by IIT Guwahati, role UX researcher and UX designer, team of three. | Details taken from her own case study page. No award was claimed even though the cover shows a ribbon icon. |
 
-### Not mine: uncommitted edits from the user in the working tree
+### Edits made by the user during the session
 
-While this round was in progress the working tree picked up edits that are not part of this log's commits: the Make My Trip project was removed (its `assets/behance/*`, `assets/marks/mmt.png`, `assets/previews/make-my-trip.jpg`, `projects/feature-addition-in-make-my-trip-app.html`, and its entries in `work.js`, `chroma.js`, `data/behance-portfolio.js` and `.json`), and `assets/Work/Portfolio_cover_image.webp` was added. These are left uncommitted on purpose. Commit them (or not) before merging.
+The user's own edits (the Make My Trip removal and `assets/Work/Portfolio_cover_image.webp`) were committed on this branch at her request, so nothing is left uncommitted apart from the untracked tooling files in section 6.
